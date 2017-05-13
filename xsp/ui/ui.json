@@ -1,0 +1,64 @@
+{
+	"style" : "default",
+	"config" : "save_魔灵召唤终极版.dat",
+   "width" : 960,
+   "height" : 1024,
+   "cancelname" : "取消",
+   "okname" : "确定",
+   "views" : [
+      {
+         "align" : "left",
+         "color" : "0,0,0",
+         "size" : "1",
+         "text" : " ",
+         "type" : "Label"
+      },
+      {
+         "align" : "center",
+         "color" : "0,0,0",
+         "size" : "30",
+         "text" : "魔灵召唤脚本",
+         "type" : "Label"
+      },
+      {
+         "align" : "left",
+         "color" : "0,0,0",
+         "size" : "1",
+         "text" : " ",
+         "type" : "Label"
+      },
+      {
+         "align" : "left",
+         "color" : "0,0,0",
+         "size" : "20",
+         "text" : "输入重复次数",
+         "type" : "Label"
+      },
+      {
+         "id" : "Edit1",
+         "align" : "left",
+         "color" : "0,0,0",
+         "kbtype" : "number",
+         "prompt" : "输入重复次数",
+         "size" : "25",
+         "text" : "15",
+         "type" : "Edit"
+      },
+//      {
+//         "id" : "RadioGroup1",
+//				"list" : "出售符文,保留符文",
+//         "select" : "0",
+//         "size" : "40",
+//         "type" : "RadioGroup",
+//         "orientation" : "vertical"
+//      },
+			{
+         "id" : "RadioGroup2",
+				"list" : "带狗粮,刷觉醒,刷符文,刷塔",
+         "select" : "0",
+         "size" : "40",
+         "type" : "RadioGroup",
+         "orientation" : "horizontal"
+      }
+   ]
+}
