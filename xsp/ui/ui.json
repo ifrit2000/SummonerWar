@@ -54,7 +54,7 @@
 //      },
 			{
          "id" : "RadioGroup2",
-				"list" : "带狗粮,刷觉醒,刷符文,刷塔",
+				"list" : "带狗粮,刷觉醒,刷符文,刷塔,刷三星碎片",
          "select" : "0",
          "size" : "40",
          "type" : "RadioGroup",

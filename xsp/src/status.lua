@@ -33,6 +33,19 @@ statusBuilder.tower=function(status)
 	status.statusList.victory.statusList.nextLevel={status=false};
 end;
 
+statusBuilder.threeStarChip=function(status)
+	status.statusList={};
+  status.statusList.gear={status=false,statusList={}};	
+  status.statusList.startFight={status=false};
+  status.statusList.notEnoughEnergy={status=false};
+  status.statusList.resendFightInfo={status=false};
+  status.statusList.resendFightResult={status=false};
+	status.statusList.gear.statusList={autoFight={status=false}};	
+	status.statusList.rgbThreeStar={status=false};
+	status.statusList.confirm={status=false};
+	status.statusList.again={status=false};
+end;
+
 
 
 initStatus=function(oper)

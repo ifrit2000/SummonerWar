@@ -40,6 +40,13 @@ fight.dogFood=function(param,status,operation)
   fight.coreFunction(param,status,operation);
 end
 
+fight.threeStarChip=function(param,status,operation)
+  sysLog('三星碎片');
+  sysLog('战斗：'..param.repeatTime);
+  
+  fight.coreFunction(param,status,operation);
+end
+
 fight.coreFunction=function(param,status,operation)
   local i=0;
 	

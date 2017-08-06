@@ -3,8 +3,8 @@ local operation={};
 function getOperation(height,width)
   
   
-	operation.height=height;
-	operation.width=width;
+  operation.height=height;
+  operation.width=width;
   
   function empty()
   end;
@@ -22,6 +22,12 @@ function getOperation(height,width)
   operation.autoFight=common.clickButton;
   
   operation.rgb=common.clickButton;
+  
+  operation.rgbThreeStar=function(param)
+    common.clickButton(param);
+    common.sleep(2);
+    common.click(666,444);
+  end
   
   operation.confirm=common.clickButton;
   
@@ -44,7 +50,7 @@ function getOperation(height,width)
     sysLog('operation.isClickedFinalBoss:'..tostring(operation.isClickedFinalBoss));
     if operation.isClickedFinalBoss~=true then
       common.click(param[8],param[9]);
---      sysLog('click final boss: '..operation.height..operation.width);
+      --      sysLog('click final boss: '..operation.height..operation.width);
       operation.isClickedFinalBoss=true;
     end;
   end
@@ -52,9 +58,9 @@ function getOperation(height,width)
   operation.littleBossFight=function(param)
     sysLog('operation.isClickedLittleBoss:'..tostring(operation.isClickedLittleBoss));
     if operation.isClickedLittleBoss~=true then
---      sysLog('click little Boss: '..operation.height..operation.width);
-common.click(param[8],param[9]);
---      common.click(operation.height*0.648,operation.width*0.277);
+      --      sysLog('click little Boss: '..operation.height..operation.width);
+      common.click(param[8],param[9]);
+      --      common.click(operation.height*0.648,operation.width*0.277);
       operation.isClickedLittleBoss=true;
     end;
   end

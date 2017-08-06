@@ -24,6 +24,8 @@ function parseUI(param)
     return 'runes';
   elseif fightType=="3" then
     return 'tower';
+	elseif fightType=="4" then
+    return 'threeStarChip';
   end;
   
 end
