@@ -85,4 +85,7 @@ fight.coreFunction=function(param,status,operation)
     end;--end for k,v in pairs(trueStatusList) 
 		delta=os.time()-startTime;
   end;
+	if delta>=timeOut then
+		common.exit();
+	end;
 end

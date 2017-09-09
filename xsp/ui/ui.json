@@ -54,7 +54,7 @@
       },
 			{
 	      "id" : "CheckBoxGroup1",
-	      "list" : "自动买体力(未完成)",
+	      "list" : "自动买体力",
 	      "select" : "",
 	      "size" : "30",
 	      "type" : "CheckBoxGroup",

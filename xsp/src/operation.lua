@@ -117,7 +117,7 @@ function getOperation(height,width)
     end;
 		
     if delta>=timeout then
-      lua_exit();
+      common.exit();
     end;
   end
   
