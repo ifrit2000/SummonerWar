@@ -44,21 +44,22 @@
          "text" : "15",
          "type" : "Edit"
       },
-//      {
-//         "id" : "RadioGroup1",
-//				"list" : "出售符文,保留符文",
-//         "select" : "0",
-//         "size" : "40",
-//         "type" : "RadioGroup",
-//         "orientation" : "vertical"
-//      },
 			{
          "id" : "RadioGroup2",
-				"list" : "带狗粮,刷觉醒,刷符文,刷塔,刷三星碎片",
+				"list" : "带狗粮,刷觉醒,刷符文,刷塔,刷三星碎片,异界(未完成)",
          "select" : "0",
          "size" : "40",
          "type" : "RadioGroup",
          "orientation" : "horizontal"
+      },
+			{
+	      "id" : "CheckBoxGroup1",
+	      "list" : "自动买体力(未完成)",
+	      "select" : "",
+	      "size" : "30",
+	      "type" : "CheckBoxGroup",
+	      "orientation" : "horizontal",
+	      "color" : "0,0,225"
       }
    ]
 }

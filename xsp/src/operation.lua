@@ -72,9 +72,53 @@ function getOperation(height,width)
   
   operation.noResurgence=common.clickButton;
   
-  operation.notEnoughEnergy=function(param)
+  operation.notEnoughEnergyNotBuy=function(param)
     common.clickButton(param);
     lua_exit();
+  end
+  
+  operation.notEnoughEnergyBuy=function(param)
+    local energy={0xffcc66,"-25|17|0xffcc66,19|-121|0xffffdd,484|-497|0xf7efdf,486|-489|0x40250d,484|-463|0x40250d,490|-341|0x4ab2f4,513|-330|0x003b8f,915|-342|0xdc1c4d", 95, 482, 735, 529, 772};
+    local buy={0xf8e9ad,"0|3|0x412702,0|7|0xf8e9ad,4|-30|0xdeb75d,95|-267|0xf8e9ad,107|-267|0x482e1f,115|-267|0xf8e9ad,612|-477|0xa7163a,190|-472|0x2b7ab7", 95, 791, 877, 854, 919};
+    local done={0x412702,"6|-4|0xf8e9ad,-19|-264|0xe2c582,-20|-269|0x482e1f,-16|-272|0xe2c582,-15|-276|0x482e1f,-4|-469|0x295f81,427|-478|0x730e27", 95, 951, 860, 1098, 921};
+    local close={0xf8f0cf,"8|-7|0xb98c4a,9|-10|0x412702,10|-14|0xf8f0cf,-14|-163|0xd81847,-518|-160|0xe32253,495|-164|0xd81948,541|-461|0x44b8ff", 95, 971, 1194, 1075, 1245};
+		local startTime=os.time();
+    local delta=0;
+		local timeout=20;
+    
+		--开始购买
+    local flag=common.clickButton(param);
+    while flag==false and delta<timeout do
+      flag=common.clickButton(param);
+      delta=os.time()-startTime;
+    end;
+		--点体力
+    flag=common.clickButton(energy);
+    while flag==false and delta<timeout do
+      flag=common.clickButton(energy);
+      delta=os.time()-startTime;
+    end;		
+		--确认购买
+    flag=common.clickButton(buy);
+    while flag==false and delta<timeout do
+      flag=common.clickButton(buy);
+      delta=os.time()-startTime;
+    end;		--点购买完成
+		flag=common.clickButton(done);
+    while flag==false and delta<timeout do
+      flag=common.clickButton(done);
+      delta=os.time()-startTime;
+    end;
+		--点关闭
+		flag=common.clickButton(close);
+    while flag==false and delta<timeout do
+      flag=common.clickButton(close);
+      delta=os.time()-startTime;
+    end;
+		
+    if delta>=timeout then
+      lua_exit();
+    end;
   end
   
   return operation;

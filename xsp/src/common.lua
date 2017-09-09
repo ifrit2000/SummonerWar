@@ -13,7 +13,7 @@ end
 
 --睡眠 单位：秒
 common.sleep=function(second)
-   mSleep(second*1000);
+  mSleep(second*1000);
 end
 
 common.findMultiColorInRegionFuzzy=function(tParam)
@@ -50,7 +50,7 @@ common.updateStatusList=function(param,statusList)
     if statusList[k].status==true and statusList[k].statusList~=nil then
       statusList[k].statusList=common.updateStatusList(param,statusList[k].statusList);
       if k=='defeat' or k=='victory' or k=='saleFiveStarRune' or k=='gear' or k=='noResurgence' then
---				sysLog('return '..k);
+        --				sysLog('return '..k);
         return statusList;
       end;
     end;
@@ -85,3 +85,10 @@ common.realTableLenth=function(t)
   end;
   return i;
 end
+
+common.hudId = createHUD();     --创建一个HUD
+
+common.showMsg=function(message)
+  local fontSize=50;
+  showHUD(common.hudId,message,fontSize,"0xffff0000","0x00ffffff",3,0,0,500,5*fontSize);     --变更显示的HUD内容
+end;

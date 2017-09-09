@@ -9,6 +9,7 @@ fight.awake=function(param,status,operation)
   sysLog('战斗：'..param.repeatTime);
   operation.height=param.height;
   operation.width=param.width;
+	param.fightDesc="刷精髓";
   
   fight.coreFunction(param,status,operation);
 end
@@ -20,6 +21,7 @@ fight.runes=function(param,status,operation)
   sysLog('战斗：'..param.repeatTime);
   operation.height=param.height;
   operation.width=param.width;
+	param.fightDesc="刷符文";
   fight.coreFunction(param,status,operation);
 end
 
@@ -28,6 +30,7 @@ end
 fight.tower=function(param,status,operation)
   sysLog('塔');
   sysLog('战斗：'..param.repeatTime);
+	param.fightDesc="刷塔";
   fight.coreFunction(param,status,operation);
 end
 
@@ -36,46 +39,46 @@ end
 fight.dogFood=function(param,status,operation)
   sysLog('狗粮');
   sysLog('战斗：'..param.repeatTime);
-  
+  param.fightDesc="带狗粮";
   fight.coreFunction(param,status,operation);
 end
 
 fight.threeStarChip=function(param,status,operation)
   sysLog('三星碎片');
   sysLog('战斗：'..param.repeatTime);
-  
+  param.fightDesc="刷碎片";
   fight.coreFunction(param,status,operation);
 end
 
 fight.coreFunction=function(param,status,operation)
   local i=0;
-	
-  while i<param.repeatTime do
     
---		common.setStatusListFalse(status.statusList);
+  while i<param.repeatTime do
+    common.showMsg("战斗类型: "..param.fightDesc.."\n战斗计数: "..tostring(i+1).."/"..tostring(param.repeatTime).."\n购买体力: "..param.isBuy);
+    --		common.setStatusListFalse(status.statusList);
     local statusList=common.updateStatusList(param,status.statusList);
- 
+    
     local trueStatusList={};
-
+    
     getTrueStatus(statusList,trueStatusList);
-
+    
     local listLenth=common.realTableLenth(trueStatusList);
-
+    
     sysLog(listLenth);
     if listLenth==0 then --长度为0表示在loading
       common.sleep(1.5);
     end;
     for k,v in pairs(trueStatusList) do
-
+      
       while true do --实现continue的功能
         if listLenth~=1 and (k=='gear' or k=='victory') then
           break;
         end;
-				sysLog(k);
+        sysLog(k);
         operation[k](param[k]);--			end;
         break;
       end;
-      if k=='startFight' then
+      if k=='again' or k=='nextLevel' then
         i=i+1;
       end;
     end;

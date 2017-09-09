@@ -5,13 +5,13 @@ statusBuilder.dogFood=function(status)
   status.statusList.defeat.statusList.again={status=false};
   status.statusList.victory.statusList.again={status=false};
   status.statusList.victory.statusList.sale={status=false};
-	status.statusList.saleFiveStarRune={status=false};
+  status.statusList.saleFiveStarRune={status=false};
 end;
 
 statusBuilder.awake=function(status)
   status.statusList.gear.statusList.FinalBossFight={status=false};
   status.statusList.gear.statusList.notBossFight={status=false};
-	status.statusList.noResurgence={status=false};
+  status.statusList.noResurgence={status=false};
   status.statusList.defeat.statusList.again={status=false};
   status.statusList.victory.statusList.again={status=false};
 end;
@@ -19,36 +19,40 @@ end;
 statusBuilder.runes=function(status)
   status.statusList.gear.statusList.FinalBossFight={status=false};
   status.statusList.gear.statusList.littleBossFight={status=false};
-	status.statusList.noResurgence={status=false};
-	status.statusList.gear.statusList.notBossFight={status=false};
+  status.statusList.noResurgence={status=false};
+  status.statusList.gear.statusList.notBossFight={status=false};
   status.statusList.defeat.statusList.again={status=false};
   status.statusList.victory.statusList.again={status=false};
-	status.statusList.victory.statusList.keepRune={status=false};
-	
+  status.statusList.victory.statusList.keepRune={status=false};
+  
 end;
 
 statusBuilder.tower=function(status)
   status.statusList.gear.statusList.FinalBossFight={status=false};
-	status.statusList.gear.statusList.notBossFight={status=false};
-	status.statusList.victory.statusList.nextLevel={status=false};
+  status.statusList.gear.statusList.notBossFight={status=false};
+  status.statusList.victory.statusList.nextLevel={status=false};
 end;
 
-statusBuilder.threeStarChip=function(status)
-	status.statusList={};
+statusBuilder.threeStarChip=function(status,isBuyEnergy)
+  status.statusList={};
   status.statusList.gear={status=false,statusList={}};	
   status.statusList.startFight={status=false};
-  status.statusList.notEnoughEnergy={status=false};
+  if isBuyEnergy then
+    status.statusList.notEnoughEnergyBuy={status=false};
+  else
+    status.statusList.notEnoughEnergyNotBuy={status=false};
+  end;
   status.statusList.resendFightInfo={status=false};
   status.statusList.resendFightResult={status=false};
-	status.statusList.gear.statusList={autoFight={status=false}};	
-	status.statusList.rgbThreeStar={status=false};
-	status.statusList.confirm={status=false};
-	status.statusList.again={status=false};
+  status.statusList.gear.statusList={autoFight={status=false}};	
+  status.statusList.rgbThreeStar={status=false};
+  status.statusList.confirm={status=false};
+  status.statusList.again={status=false};
 end;
 
 
 
-initStatus=function(oper)
+initStatus=function(oper,isBuyEnergy)
   local status={};
   --	status.startFight={status=false};
   status.statusList={};
@@ -56,16 +60,21 @@ initStatus=function(oper)
   status.statusList.gear={status=false,statusList={}};	
   status.statusList.defeat={status=false,statusList={}};
   status.statusList.startFight={status=false};
-  status.statusList.notEnoughEnergy={status=false};
+  if isBuyEnergy then
+    status.statusList.notEnoughEnergyBuy={status=false};
+  else
+    status.statusList.notEnoughEnergyNotBuy={status=false};
+  end;
+  
   status.statusList.resendFightInfo={status=false};
   status.statusList.resendFightResult={status=false};
   
   status.statusList.defeat.statusList={rgb={status=false}};
   status.statusList.victory.statusList={rgb={status=false},confirm={status=false}};
   status.statusList.gear.statusList={autoFight={status=false}};	
-	
-  statusBuilder[oper](status);
-	
+  
+  statusBuilder[oper](status,isBuyEnergy);
+  
   return status;
 end
 

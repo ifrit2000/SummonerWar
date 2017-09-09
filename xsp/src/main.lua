@@ -10,37 +10,47 @@ function parseUI(param)
     return nil;
   end;
   
-
+  
   local fightType=results["RadioGroup2"];
-  
+  local isBuyEnergy=results["CheckBoxGroup1"];
+	if isBuyEnergy=="" then
+		isBuyEnergy=false;
+	elseif isBuyEnergy == "0" then
+		isBuyEnergy=true;
+	end;
   param.repeatTime=tonumber(results["Edit1"]);
-  
+  param.isBuyEnergy=isBuyEnergy;
   if fightType=="0" then
-
-    return 'dogFood';
+    fightType= 'dogFood';
   elseif fightType=="1" then
-    return 'awake';
+    fightType= 'awake';
   elseif fightType=="2" then
-    return 'runes';
+    fightType= 'runes';
   elseif fightType=="3" then
-    return 'tower';
-	elseif fightType=="4" then
-    return 'threeStarChip';
+    fightType= 'tower';
+  elseif fightType=="4" then
+    fightType= 'threeStarChip';
   end;
-  
+  return fightType,isBuyEnergy;
 end
 
 function run()
   init("0", 1); --home键在右边
   local param=getParam();
---	sysLog(os.clock());
-  local oper=parseUI(param);
+  --	sysLog(os.clock());
+  local oper,isBuyEnergy=parseUI(param);
   if oper==nil then
     return ;
   end;
 	
-  local status=initStatus(oper);
-	local operation=getOperation(param.height,param.width);
+  if isBuyEnergy then
+    param.isBuy="是";
+  else
+    param.isBuy="否";
+  end;
+	
+  local status=initStatus(oper,isBuyEnergy);
+  local operation=getOperation(param.height,param.width);
   fight[oper](param,status,operation);
 end;
 run();
