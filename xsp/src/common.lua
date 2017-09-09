@@ -90,5 +90,10 @@ common.hudId = createHUD();     --创建一个HUD
 
 common.showMsg=function(message)
   local fontSize=50;
-  showHUD(common.hudId,message,fontSize,"0xffff0000","0x00ffffff",3,0,0,500,5*fontSize);     --变更显示的HUD内容
+  showHUD(common.hudId,message,fontSize,"0xffff0000","0x00ffffff",3,0,0,500,180);     --变更显示的HUD内容
+end;
+
+common.exit=function()
+	lockDevice();
+	lua_exit();
 end;

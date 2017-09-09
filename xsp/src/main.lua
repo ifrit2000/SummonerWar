@@ -40,7 +40,7 @@ function run()
   --	sysLog(os.clock());
   local oper,isBuyEnergy=parseUI(param);
   if oper==nil then
-    return ;
+    return;
   end;
 	
   if isBuyEnergy then
@@ -52,5 +52,6 @@ function run()
   local status=initStatus(oper,isBuyEnergy);
   local operation=getOperation(param.height,param.width);
   fight[oper](param,status,operation);
+	common.exit();
 end;
 run();

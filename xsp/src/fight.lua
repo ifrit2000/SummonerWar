@@ -52,24 +52,25 @@ end
 
 fight.coreFunction=function(param,status,operation)
   local i=0;
+	local startTime=os.time();
+	local delta=0;
+	local timeOut=600;  --单位秒
     
-  while i<param.repeatTime do
+  while i<param.repeatTime and delta<timeOut do
     common.showMsg("战斗类型: "..param.fightDesc.."\n战斗计数: "..tostring(i+1).."/"..tostring(param.repeatTime).."\n购买体力: "..param.isBuy);
     --		common.setStatusListFalse(status.statusList);
-    local statusList=common.updateStatusList(param,status.statusList);
-    
-    local trueStatusList={};
-    
+    local statusList=common.updateStatusList(param,status.statusList);    
+    local trueStatusList={};    
     getTrueStatus(statusList,trueStatusList);
-    
-    local listLenth=common.realTableLenth(trueStatusList);
-    
-    sysLog(listLenth);
+    local listLenth=common.realTableLenth(trueStatusList);    
+    sysLog("listLenth"..listLenth);
     if listLenth==0 then --长度为0表示在loading
       common.sleep(1.5);
+		else
+		-- 有新的状态就重置startTime
+			startTime=os.time();
     end;
     for k,v in pairs(trueStatusList) do
-      
       while true do --实现continue的功能
         if listLenth~=1 and (k=='gear' or k=='victory') then
           break;
@@ -81,6 +82,7 @@ fight.coreFunction=function(param,status,operation)
       if k=='again' or k=='nextLevel' then
         i=i+1;
       end;
-    end;
+    end;--end for k,v in pairs(trueStatusList) 
+		delta=os.time()-startTime;
   end;
 end
