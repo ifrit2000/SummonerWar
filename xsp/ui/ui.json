@@ -53,6 +53,16 @@
          "orientation" : "horizontal"
       },
 			{
+	      "id" : "Edit2",
+	      "align" : "left",
+	      "color" : "0,0,0",
+	      "kbtype" : "number",
+	      "prompt" : "输入购买体力的次数",
+	      "size" : "25",
+	      "text" : "5",
+	      "type" : "Edit"
+      },
+			{
 	      "id" : "CheckBoxGroup1",
 	      "list" : "自动买体力",
 	      "select" : "",

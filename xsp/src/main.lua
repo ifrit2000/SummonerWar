@@ -19,6 +19,7 @@ function parseUI(param)
 		isBuyEnergy=true;
 	end;
   param.repeatTime=tonumber(results["Edit1"]);
+	param.buyEnergyNum=tonumber(results["Edit2"]);
   param.isBuyEnergy=isBuyEnergy;
   if fightType=="0" then
     fightType= 'dogFood';
@@ -51,6 +52,7 @@ function run()
 	
   local status=initStatus(oper,isBuyEnergy);
   local operation=getOperation(param.height,param.width);
+	operation.buyEnergyNum=param.buyEnergyNum;
   fight[oper](param,status,operation);
 	common.exit();
 end;
