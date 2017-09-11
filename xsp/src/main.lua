@@ -53,7 +53,9 @@ function run()
   end;
   
   local status=initStatus(oper,isBuyEnergy);
-  local operation=getOperation(param.height,param.width,param.buyEnergyNum);
+  --local operation=getOperation(param.height,param.width,param.buyEnergyNum);
+
+	operation.setConfigValue(param.height,param.width,param.buyEnergyNum);
   fight[oper](param,status,operation);
   common.exit();
 end;
