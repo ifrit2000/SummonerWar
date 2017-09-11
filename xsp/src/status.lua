@@ -50,8 +50,6 @@ statusBuilder.threeStarChip=function(status,isBuyEnergy)
   status.statusList.again={status=false};
 end;
 
-
-
 initStatus=function(oper,isBuyEnergy)
   local status={};
   --	status.startFight={status=false};
@@ -78,10 +76,7 @@ initStatus=function(oper,isBuyEnergy)
   return status;
 end
 
-
-
 getTrueStatus=function(statusList,trueStatusList)
-  
   for k,v in pairs(statusList) do
     if v.status==true then
       trueStatusList[k]=0;
@@ -90,5 +85,4 @@ getTrueStatus=function(statusList,trueStatusList)
       end;
     end;
   end;
-  
 end;

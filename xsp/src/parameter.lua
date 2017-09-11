@@ -5,7 +5,6 @@ function getParam()
   parameter.device['15362048']='ipadMini2';
   parameter.device['14402560']='g9280';
   
-  
   local width,height = getScreenSize();
   --	parameter
   --初始化参数

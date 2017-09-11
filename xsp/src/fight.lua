@@ -1,5 +1,3 @@
-
-
 fight={};
 
 --觉醒
@@ -84,9 +82,14 @@ fight.coreFunction=function(param,status,operation)
         operation[k](param[k]);--			end;
         break;
       end;
+			--战斗次数加1
       if k=='again' or k=='nextLevel' then
         i=i+1;
       end;
+			--如果是购买体力,那么战斗次数减1
+			if k=='notEnoughEnergyBuy' then
+				i=i-1;
+			end;
     end;--end for k,v in pairs(trueStatusList) 
     delta=os.time()-startTime;
   end;
