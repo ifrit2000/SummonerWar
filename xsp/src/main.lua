@@ -13,13 +13,13 @@ function parseUI(param)
   
   local fightType=results["RadioGroup2"];
   local isBuyEnergy=results["CheckBoxGroup1"];
-	if isBuyEnergy=="" then
-		isBuyEnergy=false;
-	elseif isBuyEnergy == "0" then
-		isBuyEnergy=true;
-	end;
+  if isBuyEnergy=="" then
+    isBuyEnergy=false;
+  elseif isBuyEnergy == "0" then
+    isBuyEnergy=true;
+  end;
   param.repeatTime=tonumber(results["Edit1"]);
-	param.buyEnergyNum=tonumber(results["Edit2"]);
+  param.buyEnergyNum=tonumber(results["Edit2"]);
   param.isBuyEnergy=isBuyEnergy;
   if fightType=="0" then
     fightType= 'dogFood';
@@ -31,6 +31,8 @@ function parseUI(param)
     fightType= 'tower';
   elseif fightType=="4" then
     fightType= 'threeStarChip';
+  elseif fightType=="5" then
+    fightType= 'theAlienLandCaptain';
   end;
   return fightType,isBuyEnergy;
 end
@@ -43,17 +45,16 @@ function run()
   if oper==nil then
     return;
   end;
-	
+  
   if isBuyEnergy then
     param.isBuy="是";
   else
     param.isBuy="否";
   end;
-	
+  
   local status=initStatus(oper,isBuyEnergy);
-  local operation=getOperation(param.height,param.width);
-	operation.buyEnergyNum=param.buyEnergyNum;
+  local operation=getOperation(param.height,param.width,param.buyEnergyNum);
   fight[oper](param,status,operation);
-	common.exit();
+  common.exit();
 end;
 run();

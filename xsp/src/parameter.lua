@@ -1,4 +1,4 @@
-local parameter={device={}};
+parameter={device={}};
 
 function getParam()
   --设备列表

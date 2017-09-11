@@ -9,7 +9,7 @@ fight.awake=function(param,status,operation)
   sysLog('战斗：'..param.repeatTime);
   operation.height=param.height;
   operation.width=param.width;
-	param.fightDesc="刷精髓";
+  param.fightDesc="刷精髓";
   
   fight.coreFunction(param,status,operation);
 end
@@ -21,7 +21,7 @@ fight.runes=function(param,status,operation)
   sysLog('战斗：'..param.repeatTime);
   operation.height=param.height;
   operation.width=param.width;
-	param.fightDesc="刷符文";
+  param.fightDesc="刷符文";
   fight.coreFunction(param,status,operation);
 end
 
@@ -30,7 +30,7 @@ end
 fight.tower=function(param,status,operation)
   sysLog('塔');
   sysLog('战斗：'..param.repeatTime);
-	param.fightDesc="刷塔";
+  param.fightDesc="刷塔";
   fight.coreFunction(param,status,operation);
 end
 
@@ -50,12 +50,17 @@ fight.threeStarChip=function(param,status,operation)
   fight.coreFunction(param,status,operation);
 end
 
+fight.theAlienLandCaptain=function(param,status,operation)
+  sysLog('异界(队长)(未实现)');
+  
+end
+
 fight.coreFunction=function(param,status,operation)
   local i=0;
-	local startTime=os.time();
-	local delta=0;
-	local timeOut=600;  --单位秒
-    
+  local startTime=os.time();
+  local delta=0;
+  local timeOut=600;  --单位秒
+  
   while i<param.repeatTime and delta<timeOut do
     common.showMsg("战斗类型: "..param.fightDesc.."\n战斗计数: "..tostring(i+1).."/"..tostring(param.repeatTime).."\n购买体力: "..param.isBuy);
     --		common.setStatusListFalse(status.statusList);
@@ -66,9 +71,9 @@ fight.coreFunction=function(param,status,operation)
     sysLog("listLenth"..listLenth);
     if listLenth==0 then --长度为0表示在loading
       common.sleep(1.5);
-		else
-		-- 有新的状态就重置startTime
-			startTime=os.time();
+    else
+      -- 有新的状态就重置startTime
+      startTime=os.time();
     end;
     for k,v in pairs(trueStatusList) do
       while true do --实现continue的功能
@@ -83,9 +88,9 @@ fight.coreFunction=function(param,status,operation)
         i=i+1;
       end;
     end;--end for k,v in pairs(trueStatusList) 
-		delta=os.time()-startTime;
+    delta=os.time()-startTime;
   end;
-	if delta>=timeOut then
-		common.exit();
-	end;
+  if delta>=timeOut then
+    common.exit();
+  end;
 end
