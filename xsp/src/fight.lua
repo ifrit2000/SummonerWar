@@ -54,13 +54,15 @@ fight.theAlienLandCaptain=function(param,status,operation)
 end
 
 fight.coreFunction=function(param,status,operation)
+
   local i=0;
+	local failCount=0;
   local startTime=os.time();
   local delta=0;
   local timeOut=600;  --单位秒
   
   while i<param.repeatTime and delta<timeOut do
-    common.showMsg("战斗类型: "..param.fightDesc.."\n战斗计数: "..tostring(i+1).."/"..tostring(param.repeatTime).."\n购买体力: "..param.isBuy);
+    common.showMsg("战斗类型: "..param.fightDesc.."\n战斗计数: "..tostring(i+1).."/"..tostring(param.repeatTime).."/"..tostring(failCount).."\n购买体力: "..param.isBuy);
     --		common.setStatusListFalse(status.statusList);
     local statusList=common.updateStatusList(param,status.statusList);    
     local trueStatusList={};    
@@ -89,6 +91,9 @@ fight.coreFunction=function(param,status,operation)
 			--如果是购买体力,那么战斗次数减1
 			if k=='notEnoughEnergyBuy' then
 				i=i-1;
+			end;
+			if k=='noResurgence' then
+				failCount=failCount+1;
 			end;
     end;--end for k,v in pairs(trueStatusList) 
     delta=os.time()-startTime;
