@@ -138,5 +138,11 @@ operation.notEnoughEnergyBuy=function(param)
   -- end; --end buyEnergyNum~=0
 end
 
+operation.otherWorldStart=common.clickButton;
+operation.otherWorldVictory=common.clickButton;
+operation.otherWorldComfirmStart=common.clickButton;
+operation.otherWorldGetStone=common.clickButton;
+operation.otherWorldAgain=common.clickButton;
+operation.otherWorldFailed=common.clickButton;
 --  return operation;
 --end;

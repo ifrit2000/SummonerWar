@@ -32,7 +32,7 @@ function parseUI(param)
   elseif fightType=="4" then
     fightType= 'threeStarChip';
   elseif fightType=="5" then
-    fightType= 'theAlienLandCaptain';
+    fightType= 'otherWorld';
   end;
   return fightType,isBuyEnergy;
 end
@@ -54,7 +54,7 @@ function run()
   
   local status=initStatus(oper,isBuyEnergy);
   --local operation=getOperation(param.height,param.width,param.buyEnergyNum);
-
+	
 	operation.setConfigValue(param.height,param.width,param.buyEnergyNum);
   fight[oper](param,status,operation);
   common.exit();

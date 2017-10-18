@@ -48,9 +48,12 @@ fight.threeStarChip=function(param,status,operation)
   fight.coreFunction(param,status,operation);
 end
 
-fight.theAlienLandCaptain=function(param,status,operation)
-  sysLog('异界(队长)(未实现)');
-  
+fight.otherWorld=function(param,status,operation)
+  sysLog('突突(队长)');
+	sysLog('战斗：'..param.repeatTime);
+  param.fightDesc="突突";
+	
+  fight.coreFunction(param,status,operation);
 end
 
 fight.coreFunction=function(param,status,operation)

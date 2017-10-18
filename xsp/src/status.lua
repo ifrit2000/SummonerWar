@@ -33,6 +33,16 @@ statusBuilder.tower=function(status)
   status.statusList.victory.statusList.nextLevel={status=false};
 end;
 
+statusBuilder.otherWorld=function(status)
+  status.statusList.otherWorldStart={status=false};
+  status.statusList.otherWorldVictory={status=false};
+  status.statusList.otherWorldComfirmStart={status=false};
+  status.statusList.otherWorldGetStone={status=false};
+  status.statusList.otherWorldAgain={status=false};
+  status.statusList.otherWorldFailed={status=false};
+  status.statusList.confirm={status=false};
+end;
+
 statusBuilder.threeStarChip=function(status,isBuyEnergy)
   status.statusList={};
   status.statusList.gear={status=false,statusList={}};	
@@ -54,23 +64,23 @@ initStatus=function(oper,isBuyEnergy)
   local status={};
   --	status.startFight={status=false};
   status.statusList={};
-  status.statusList.victory={status=false,statusList={}};
-  status.statusList.gear={status=false,statusList={}};	
-  status.statusList.defeat={status=false,statusList={}};
-  status.statusList.startFight={status=false};
+  if oper~="otherWorld" then
+    status.statusList.victory={status=false,statusList={}};
+    status.statusList.gear={status=false,statusList={}};	
+    status.statusList.defeat={status=false,statusList={}};
+    status.statusList.startFight={status=false};
+    status.statusList.defeat.statusList={rgb={status=false}};
+    status.statusList.victory.statusList={rgb={status=false},confirm={status=false}};
+    status.statusList.gear.statusList={autoFight={status=false}};	
+  end;
+  
   if isBuyEnergy then
     status.statusList.notEnoughEnergyBuy={status=false};
   else
     status.statusList.notEnoughEnergyNotBuy={status=false};
   end;
-  
-  status.statusList.resendFightInfo={status=false};
+      status.statusList.resendFightInfo={status=false};
   status.statusList.resendFightResult={status=false};
-  
-  status.statusList.defeat.statusList={rgb={status=false}};
-  status.statusList.victory.statusList={rgb={status=false},confirm={status=false}};
-  status.statusList.gear.statusList={autoFight={status=false}};	
-  
   statusBuilder[oper](status,isBuyEnergy);
   
   return status;
