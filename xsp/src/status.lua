@@ -14,71 +14,71 @@ status.common={
 	startFight={
 		name="startFight",
 		point=nil,
-		preStatus={},
-		nextStatus={"gear"}
+		nextStatus={"gear"},
+		execTime=60
 	},
 	gear={
 		name="gear",
 		point=nil,
-		preStatus={"startFight"},
-		nextStatus={"tangle","victoryRGB","noRevive"}
+		nextStatus={"tangle","victoryRGB","noRevive"},
+		execTime=300
 	},
 	tangle={
 		name="tangle",
 		point=nil,
-		preStatus={"gear"},
-		nextStatus={"tangle","victoryRGB","noRevive"}
+		nextStatus={"victoryRGB","noRevive"},
+		execTime=300
 	},
 	victoryRGB={
 		name="victoryRGB",
 		point=nil,
-		preStatus={"gear","tangle"},
-		nextStatus={"victory"}
+		nextStatus={"victory"},
+		execTime=10
 	},
 	victory={
 		name="victory",
 		point=nil,
-		preStatus={"victoryRGB"},
-		nextStatus={"saleRune","confirmReward"}
+		nextStatus={"saleRune","confirmReward"},
+		execTime=10
 	},
 	confirmReward={
 		name="confirmReward",
 		point=nil,
-		preStatus={"victory"},
-		nextStatus={"again"}
+		nextStatus={"again"},
+		execTime=10
 	},
 	saleRune={
 		name="saleRune",
 		point=nil,
-		preStatus={"victory"},
-		nextStatus={"again","confirmSaleRune"}
+		nextStatus={"again","confirmSaleRune"},
+		execTime=10
 	},
 	confirmSaleRune={
 		name="confirmSaleRune",
 		point=nil,
-		preStatus={"saleRune"},
-		nextStatus={"again"}
+		nextStatus={"again"},
+		execTime=10
 	},
 	again={
 		name="again",
 		point=nil,
-		preStatus={"saleRune","confirmReward","confirmSaleRune"},
-		nextStatus={"tangle","victoryRGB","noRevive"}
+		nextStatus={"gear"},
+		execTime=60
 	},
 	noRevive={
 		point=nil,
-		preStatus={},
-		nextStatus={}
+		nextStatus={},
+		execTime=1
 	},
 	defeat={
 		point=nil,
-		preStatus={},
-		nextStatus={}
+		nextStatus={},
+		execTime=1
 	},
 	prepareBattle={
 		point=nil,
-		preStatus={},
-		nextStatus={}
+		nextStatus={},
+		execTime=1
 	},
 	startList={"startFight","gear"}
 }
@@ -111,7 +111,6 @@ status[1]={
 	victory={
 		name="victory",
 		point=nil,
-		preStatus={"victoryRGB"},
 		nextStatus={"confirmReward"}
 	},
 	confirmReward=status.common.confirmReward,

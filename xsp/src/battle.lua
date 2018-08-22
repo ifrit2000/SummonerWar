@@ -19,7 +19,7 @@ function battle.start()
 	local status=status[config.battleType]
 	showBattleInfo()
 	--初始化状态
-	local curStatus=findStatus(status,status.startList)
+	local curStatus=findStatus(status,status.startList,20)
 	if curStatus==nil then
 		dialog("初始化状态失败")
 		return
@@ -34,7 +34,7 @@ function battle.start()
 			--执行成功
 			statusList=curStatus.nextStatus
 			lib.sleep(1.5)
-			local tmp=findStatus(status,statusList)
+			local tmp=findStatus(status,statusList,curStatus.execTime)
 			if tmp~=nil then
 				curStatus=tmp
 			else
@@ -48,13 +48,16 @@ function battle.start()
 	end
 end
 
-function findStatus(status,statusList)
+--status     所有状态列表
+--statusList 需要查找的状态列表
+--execTime   执行时间,超过这个时间就跳出
+function findStatus(status,statusList,execTime)
 	local startTime=os.time()
 	keepScreen(true)
-	while os.time()-startTime<60 do
+	while os.time()-startTime<execTime do
 		local isColorExist
 		for k,v in pairs(statusList) do
-			sysLog("开始查找:"..v)
+			sysLog("开始查找:"..v.." 剩余时间: "..(execTime-(os.time()-startTime)))
 			isColorExist=lib.findColor(status[v].point)
 			if isColorExist~=-1 then
 				--如果存在,设置当前status,跳出循环
