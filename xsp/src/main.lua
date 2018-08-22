@@ -1,62 +1,64 @@
-require("common");
-require("parameter");
-require("fight");
-require("status");
-require("operation");
+require("lib")
+require("config")
+require("status")
+require("battle")
+require("action")
 
-function parseUI(param)
-  local ret,results = showUI("ui.json");
-  if ret~=1 then
-    return nil;
-  end;
-  
-  
-  local fightType=results["RadioGroup2"];
-  local isBuyEnergy=results["CheckBoxGroup1"];
-  if isBuyEnergy=="" then
-    isBuyEnergy=false;
-  elseif isBuyEnergy == "0" then
-    isBuyEnergy=true;
-  end;
-  param.repeatTime=tonumber(results["Edit1"]);
-  param.buyEnergyNum=tonumber(results["Edit2"]);
-  param.isBuyEnergy=isBuyEnergy;
-  if fightType=="0" then
-    fightType= 'dogFood';
-  elseif fightType=="1" then
-    fightType= 'awake';
-  elseif fightType=="2" then
-    fightType= 'runes';
-  elseif fightType=="3" then
-    fightType= 'tower';
-  elseif fightType=="4" then
-    fightType= 'threeStarChip';
-  elseif fightType=="5" then
-    fightType= 'theAlienLandCaptain';
-  end;
-  return fightType,isBuyEnergy;
+--s6 2560 1440
+--mini2 2048 1536
+
+--初始化设备信息
+function initScript()
+	init("0", 1); --以当前应用 Home 键在右边初始化
+	local width,height = getScreenSize()
+	
+	if width==1536 and height==2048 then
+		config.width=1536
+		config.height=2048
+		config.device='mini2'
+		config.points=require("points/mini2")
+	elseif width==1440 and height==2560 then
+		config.width=1440
+		config.height=2560
+		config.device='s6ep'
+		config.points=require("points/s6ep")
+	else
+		dialog("未知设备")
+		return false
+	end
+	--x,y = catchTouchPoint()
+	sysLog("设备信息: ")
+	sysLog("    设备名称:"..config.device)
+	sysLog("    分辨率:"..height.."*"..width)
+	
+	config.hudId = createHUD()     --创建一个HUD
+	return true
 end
 
-function run()
-  init("0", 1); --home键在右边
-  local param=getParam();
-  --	sysLog(os.clock());
-  local oper,isBuyEnergy=parseUI(param);
-  if oper==nil then
-    return;
-  end;
-  
-  if isBuyEnergy then
-    param.isBuy="是";
-  else
-    param.isBuy="否";
-  end;
-  
-  local status=initStatus(oper,isBuyEnergy);
-  --local operation=getOperation(param.height,param.width,param.buyEnergyNum);
+--解析UI
+function parseUI()
+	local ret,result=showUI("ui.json")
+	if ret==0 then
+		return false
+	end
+	config.repeatCount=tonumber(result['repeatCount'])
+	config.energeCount=tonumber(result['energeCount'])
+	config.battleType=tonumber(result['battleType'])
+	
+	return true
+end
 
-	operation.setConfigValue(param.height,param.width,param.buyEnergyNum);
-  fight[oper](param,status,operation);
-  common.exit();
+
+function run()
+	if initScript()==false then
+		return
+	end
+	if parseUI()==false then
+		return
+	end
+
+	battle.start()
+	
 end;
+
 run();

@@ -1,88 +1,140 @@
-statusBuilder={};
+require("config")
+require("action")
+status={}
 
-statusBuilder.dogFood=function(status)
-  status.statusList.defeat.statusList.noResurgence={status=false};
-  status.statusList.defeat.statusList.again={status=false};
-  status.statusList.victory.statusList.again={status=false};
-  status.statusList.victory.statusList.sale={status=false};
-  status.statusList.saleFiveStarRune={status=false};
-end;
-
-statusBuilder.awake=function(status)
-  status.statusList.gear.statusList.FinalBossFight={status=false};
-  status.statusList.gear.statusList.notBossFight={status=false};
-  status.statusList.noResurgence={status=false};
-  status.statusList.defeat.statusList.again={status=false};
-  status.statusList.victory.statusList.again={status=false};
-end;
-
-statusBuilder.runes=function(status)
-  status.statusList.gear.statusList.FinalBossFight={status=false};
-  status.statusList.gear.statusList.littleBossFight={status=false};
-  status.statusList.noResurgence={status=false};
-  status.statusList.gear.statusList.notBossFight={status=false};
-  status.statusList.defeat.statusList.again={status=false};
-  status.statusList.victory.statusList.again={status=false};
-  status.statusList.victory.statusList.keepRune={status=false};
-  
-end;
-
-statusBuilder.tower=function(status)
-  status.statusList.gear.statusList.FinalBossFight={status=false};
-  status.statusList.gear.statusList.notBossFight={status=false};
-  status.statusList.victory.statusList.nextLevel={status=false};
-end;
-
-statusBuilder.threeStarChip=function(status,isBuyEnergy)
-  status.statusList={};
-  status.statusList.gear={status=false,statusList={}};	
-  status.statusList.startFight={status=false};
-  if isBuyEnergy then
-    status.statusList.notEnoughEnergyBuy={status=false};
-  else
-    status.statusList.notEnoughEnergyNotBuy={status=false};
-  end;
-  status.statusList.resendFightInfo={status=false};
-  status.statusList.resendFightResult={status=false};
-  status.statusList.gear.statusList={autoFight={status=false}};	
-  status.statusList.rgbThreeStar={status=false};
-  status.statusList.confirm={status=false};
-  status.statusList.again={status=false};
-end;
-
-initStatus=function(oper,isBuyEnergy)
-  local status={};
-  --	status.startFight={status=false};
-  status.statusList={};
-  status.statusList.victory={status=false,statusList={}};
-  status.statusList.gear={status=false,statusList={}};	
-  status.statusList.defeat={status=false,statusList={}};
-  status.statusList.startFight={status=false};
-  if isBuyEnergy then
-    status.statusList.notEnoughEnergyBuy={status=false};
-  else
-    status.statusList.notEnoughEnergyNotBuy={status=false};
-  end;
-  
-  status.statusList.resendFightInfo={status=false};
-  status.statusList.resendFightResult={status=false};
-  
-  status.statusList.defeat.statusList={rgb={status=false}};
-  status.statusList.victory.statusList={rgb={status=false},confirm={status=false}};
-  status.statusList.gear.statusList={autoFight={status=false}};	
-  
-  statusBuilder[oper](status,isBuyEnergy);
-  
-  return status;
+function status.getCurStatus(candidateStatus)
+	keepScreen(true)
+	for k,v in pairs(candidateStatus) do
+		local x,y=findColor(v.point)
+	end
+	keepScreen(false)
 end
 
-getTrueStatus=function(statusList,trueStatusList)
-  for k,v in pairs(statusList) do
-    if v.status==true then
-      trueStatusList[k]=0;
-      if v.statusList~=nil then
-        getTrueStatus(v.statusList,trueStatusList);
-      end;
-    end;
-  end;
-end;
+status.common={
+	startFight={
+		name="startFight",
+		point=nil,
+		preStatus={},
+		nextStatus={"gear"}
+	},
+	gear={
+		name="gear",
+		point=nil,
+		preStatus={"startFight"},
+		nextStatus={"tangle","victoryRGB","noRevive"}
+	},
+	tangle={
+		name="tangle",
+		point=nil,
+		preStatus={"gear"},
+		nextStatus={"tangle","victoryRGB","noRevive"}
+	},
+	victoryRGB={
+		name="victoryRGB",
+		point=nil,
+		preStatus={"gear","tangle"},
+		nextStatus={"victory"}
+	},
+	victory={
+		name="victory",
+		point=nil,
+		preStatus={"victoryRGB"},
+		nextStatus={"saleRune","confirmReward"}
+	},
+	confirmReward={
+		name="confirmReward",
+		point=nil,
+		preStatus={"victory"},
+		nextStatus={"again"}
+	},
+	saleRune={
+		name="saleRune",
+		point=nil,
+		preStatus={"victory"},
+		nextStatus={"again","confirmSaleRune"}
+	},
+	confirmSaleRune={
+		name="confirmSaleRune",
+		point=nil,
+		preStatus={"saleRune"},
+		nextStatus={"again"}
+	},
+	again={
+		name="again",
+		point=nil,
+		preStatus={"saleRune","confirmReward","confirmSaleRune"},
+		nextStatus={"tangle","victoryRGB","noRevive"}
+	},
+	noRevive={
+		point=nil,
+		preStatus={},
+		nextStatus={}
+	},
+	defeat={
+		point=nil,
+		preStatus={},
+		nextStatus={}
+	},
+	prepareBattle={
+		point=nil,
+		preStatus={},
+		nextStatus={}
+	},
+	startList={"startFight","gear"}
+}
+
+
+
+--带狗粮
+status[0]={
+	startFight=status.common.startFight,
+	gear=status.common.gear,
+	tangle=status.common.tangle,
+	victoryRGB=status.common.victoryRGB,
+	victory=status.common.victory,
+	confirmReward=status.common.confirmReward,
+	saleRune=status.common.saleRune,
+	confirmSaleRune=status.common.confirmSaleRune,
+	again=status.common.again,
+	noRevive=status.common.noRevive,
+	defeat=status.common.defeat,
+	prepareBattle=status.common.prepareBattle,
+	startList=status.common.startList
+}
+
+--觉醒
+status[1]={
+	startFight=status.common.startFight,
+	gear=status.common.gear,
+	tangle=status.common.tangle,
+	victoryRGB=status.common.victoryRGB,
+	victory={
+		name="victory",
+		point=nil,
+		preStatus={"victoryRGB"},
+		nextStatus={"confirmReward"}
+	},
+	confirmReward=status.common.confirmReward,
+	
+	again=status.common.again,
+	noRevive=status.common.noRevive,
+	defeat=status.common.defeat,
+	prepareBattle=status.common.prepareBattle,
+	startList=status.common.startList
+}
+
+
+function status.init()
+	action.init()
+	--初始化point
+	for k,v in pairs(status[config.battleType]) do
+		v.point=config.points[k]
+		v.action=action[k]
+		--添加自己到next
+		if v.nextStatus~=nil then
+			v.nextStatus[#v.nextStatus+1]=v.name
+		end
+	end
+end
+
+return status
