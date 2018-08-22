@@ -154,7 +154,8 @@ status[1]={
 	victory={
 		name="victory",
 		point=nil,
-		nextStatus={"confirmReward"}
+		nextStatus={"confirmReward"},
+		execTime=10
 	},
 	confirmReward=status.common.confirmReward,
 	

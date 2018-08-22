@@ -58,7 +58,8 @@ function run()
 	end
 
 	battle.start()
-	
+	lockDevice();
+	lua_exit();
 end;
 
 run();

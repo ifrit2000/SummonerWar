@@ -19,8 +19,8 @@ function battle.start()
 	local status=status[config.battleType]
 	showBattleInfo()
 	--初始化状态
---	local curStatus=findStatus(status,status.startList,20)
-local curStatus=findStatus(status,{"openStore"},20)
+	local curStatus=findStatus(status,status.startList,20)
+--local curStatus=findStatus(status,{"openStore"},20)
 	if curStatus==nil then
 		dialog("初始化状态失败")
 		return
@@ -30,10 +30,6 @@ local curStatus=findStatus(status,{"openStore"},20)
 	while const.repeatCount<config.repeatCount or (const.repeatCount==config.repeatCount and curStatus.name~="victory" and curStatus.name~="noRevive") do
 		--判断购买体力
 		if curStatus.name=="openStore" and const.energeCount<=config.energeCount then
-			return
-		end
-		
-		if action.name="openStore" and const.energeCount<=config.energeCount then
 			return
 		end
 		
