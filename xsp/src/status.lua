@@ -66,20 +66,56 @@ status.common={
 		execTime=60
 	},
 	noRevive={
+		name="noRevive",
 		point=nil,
-		nextStatus={},
-		execTime=1
+		nextStatus={"defeat"},
+		execTime=10
 	},
 	defeat={
+		name="defeat",
 		point=nil,
-		nextStatus={},
-		execTime=1
+		nextStatus={"prepareBattle"},
+		execTime=10
 	},
 	prepareBattle={
+		name="prepareBattle",
 		point=nil,
-		nextStatus={},
-		execTime=1
+		nextStatus={"startFight"},
+		execTime=10
 	},
+	openStore={
+		name="openStore",
+		point=nil,
+		nextStatus={"clickEnerge"},
+		execTime=10
+	},
+	clickEnerge={
+		name="clickEnerge",
+		point=nil,
+		nextStatus={"buyEnerge"},
+		execTime=10
+	},
+	buyEnerge={
+		name="buyEnerge",
+		point=nil,
+		nextStatus={"finishBuyConfirm"},
+		execTime=10
+	},
+	
+	finishBuyConfirm={
+		name="finishBuyConfirm",
+		point=nil,
+		nextStatus={"closeStore"},
+		execTime=10
+	},
+	
+	closeStore={
+		name="closeStore",
+		point=nil,
+		nextStatus={"again"},
+		execTime=10
+	},
+	
 	startList={"startFight","gear"}
 }
 

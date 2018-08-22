@@ -2,10 +2,11 @@ require("lib")
 require("const")
 action={}
 
-action.clickPointAction={"tangle","victoryRGB","victory","confirmReward","saleRune","confirmSaleRune"}
+action.clickPointAction={"tangle","victoryRGB","victory","confirmReward","saleRune","confirmSaleRune",
+	"noRevive","defeat","prepareBattle","openStore","clickEnerge","buyEnerge","closeStore"}
 action.emptyAction={"gear"}
 
-function action.startFight(point)
+function action.addRepeatCount(point)
 	if lib.clickPoint(point) then
 		const.repeatCount=const.repeatCount+1
 		return true;
@@ -13,14 +14,17 @@ function action.startFight(point)
 	return false;
 end
 
+action.startFight=action.addRepeatCount
+action.again=action.addRepeatCount
 
-function action.again(point)
+function action.finishBuyConfirm(point)
 	if lib.clickPoint(point) then
-		const.repeatCount=const.repeatCount+1
+		const.energeCount=const.energeCount+1
 		return true;
 	end
 	return false;
 end
+
 
 function action.init()
 	for k,v in pairs(action.clickPointAction) do
