@@ -27,6 +27,10 @@ function battle.start()
 	
 	--or后面的条件保证最后一次战斗脚本能控制到战斗结束
 	while const.repeatCount<config.repeatCount or (const.repeatCount==config.repeatCount and curStatus.name~="victory" and curStatus.name~="noRevive") do
+		--判断购买体力
+		if curStatus.name=="openStore" and const.energeCount<=config.energeCount then
+			return
+		end
 		
 		if curStatus.action(curStatus.point) then
 			sysLog("执行成功:"..curStatus.name)
