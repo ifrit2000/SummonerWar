@@ -62,7 +62,7 @@ status.common={
 	again={
 		name="again",
 		point=nil,
-		nextStatus={"gear"},
+		nextStatus={"gear","openStore"},
 		execTime=60
 	},
 	noRevive={
@@ -135,6 +135,13 @@ status[0]={
 	noRevive=status.common.noRevive,
 	defeat=status.common.defeat,
 	prepareBattle=status.common.prepareBattle,
+	
+	openStore=status.common.openStore,
+	clickEnerge=status.common.clickEnerge,
+	buyEnerge=status.common.buyEnerge,
+	finishBuyConfirm=status.common.finishBuyConfirm,
+	closeStore=status.common.closeStore,
+	
 	startList=status.common.startList
 }
 
@@ -155,6 +162,13 @@ status[1]={
 	noRevive=status.common.noRevive,
 	defeat=status.common.defeat,
 	prepareBattle=status.common.prepareBattle,
+	
+	openStore=status.common.openStore,
+	clickEnerge=status.common.clickEnerge,
+	buyEnerge=status.common.buyEnerge,
+	finishBuyConfirm=status.common.finishBuyConfirm,
+	closeStore=status.common.closeStore,
+	
 	startList=status.common.startList
 }
 

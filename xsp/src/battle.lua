@@ -19,7 +19,8 @@ function battle.start()
 	local status=status[config.battleType]
 	showBattleInfo()
 	--初始化状态
-	local curStatus=findStatus(status,status.startList,20)
+--	local curStatus=findStatus(status,status.startList,20)
+local curStatus=findStatus(status,{"openStore"},20)
 	if curStatus==nil then
 		dialog("初始化状态失败")
 		return
@@ -27,6 +28,10 @@ function battle.start()
 	
 	--or后面的条件保证最后一次战斗脚本能控制到战斗结束
 	while const.repeatCount<config.repeatCount or (const.repeatCount==config.repeatCount and curStatus.name~="victory" and curStatus.name~="noRevive") do
+		
+		if action.name="openStore" and const.energeCount<=config.energeCount then
+			return
+		end
 		
 		if curStatus.action(curStatus.point) then
 			sysLog("执行成功:"..curStatus.name)
