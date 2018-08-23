@@ -117,6 +117,7 @@ status.common={
 	},
 	
 	startList={"startFight","gear"}
+--	startList={"littleBoss"}
 }
 
 
@@ -131,6 +132,7 @@ status[0]={
 	confirmReward=status.common.confirmReward,
 	saleRune=status.common.saleRune,
 	confirmSaleRune=status.common.confirmSaleRune,
+	
 	again=status.common.again,
 	noRevive=status.common.noRevive,
 	defeat=status.common.defeat,
@@ -163,6 +165,113 @@ status[1]={
 	noRevive=status.common.noRevive,
 	defeat=status.common.defeat,
 	prepareBattle=status.common.prepareBattle,
+	
+	openStore=status.common.openStore,
+	clickEnerge=status.common.clickEnerge,
+	buyEnerge=status.common.buyEnerge,
+	finishBuyConfirm=status.common.finishBuyConfirm,
+	closeStore=status.common.closeStore,
+	
+	startList=status.common.startList
+}
+
+--符文
+status[2]={
+	startFight=status.common.startFight,
+	gear={
+		name="gear",
+		point=nil,
+		nextStatus={"tangle","littleBoss","victoryRGB","noRevive"},
+		execTime=100
+	},
+	tangle={
+		name="tangle",
+		point=nil,
+		nextStatus={"littleBoss","victoryRGB","noRevive"},
+		execTime=100
+	},
+	littleBoss={
+		name="littleBoss",
+		point=nil,
+		nextStatus={"bigBoss","victoryRGB","noRevive"},
+		execTime=300
+	},
+	bigBoss={
+		name="bigBoss",
+		point=nil,
+		nextStatus={"victoryRGB","noRevive"},
+		execTime=300
+	},
+	victoryRGB=status.common.victoryRGB,
+	victory={
+		name="victory",
+		point=nil,
+		nextStatus={"keepRune","confirmReward"},
+		execTime=10
+	},
+	confirmReward=status.common.confirmReward,
+	keepRune={
+		name="keepRune",
+		point=nil,
+		nextStatus={"again"},
+		execTime=10
+	},
+	again=status.common.again,
+	noRevive=status.common.noRevive,
+	defeat=status.common.defeat,
+	prepareBattle=status.common.prepareBattle,
+	
+	openStore=status.common.openStore,
+	clickEnerge=status.common.clickEnerge,
+	buyEnerge=status.common.buyEnerge,
+	finishBuyConfirm=status.common.finishBuyConfirm,
+	closeStore=status.common.closeStore,
+	
+	startList=status.common.startList
+}
+
+--塔
+status[3]={
+	startFight=status.common.startFight,
+	gear={
+		name="gear",
+		point=nil,
+		nextStatus={"tangle","littleBoss","victoryRGB","defeat"},
+		execTime=300
+	},
+	tangle={
+		name="tangle",
+		point=nil,
+		nextStatus={"littleBoss","victoryRGB","defeat"},
+		execTime=300
+	},
+	littleBoss={
+		name="littleBoss",
+		point=nil,
+		nextStatus={"victoryRGB","defeat"},
+		execTime=300
+	},
+	victoryRGB=status.common.victoryRGB,
+	victory={
+		name="victory",
+		point=nil,
+		nextStatus={"confirmReward"},
+		execTime=10
+	},
+	confirmReward={
+		name="confirmReward",
+		point=nil,
+		nextStatus={"nextStage"},
+		execTime=10
+	},
+	nextStage={
+		name="nextStage",
+		point=nil,
+		nextStatus={"startFight"},
+		execTime=10
+	},
+	defeat=status.common.defeat,
+	--prepareBattle=status.common.prepareBattle,
 	
 	openStore=status.common.openStore,
 	clickEnerge=status.common.clickEnerge,

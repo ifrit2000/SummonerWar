@@ -18,4 +18,6 @@ config.repeatCount=nil
 config.energeCount=nil
 config.battleType=nil
 
+config.isClickLittleBoss=false
+
 return config

@@ -17,9 +17,11 @@ function battle.start()
 	--判断当前状态
 	status.init()
 	local status=status[config.battleType]
+	
 	showBattleInfo()
 	--初始化状态
 	local curStatus=findStatus(status,status.startList,20)
+	sysLog("初始状态:"..curStatus.name)
 --local curStatus=findStatus(status,{"openStore"},20)
 	if curStatus==nil then
 		dialog("初始化状态失败")
