@@ -6,6 +6,8 @@ config[3]="刷塔"
 config[4]="刷三星碎片"
 config[5]="突突(队长)"
 config[6]="突突(队员)"
+config[7]="合成精髓"
+config[8]="竞技场"
 
 
 config.point=nil

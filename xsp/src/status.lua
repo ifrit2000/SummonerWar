@@ -117,7 +117,7 @@ status.common={
 	},
 	
 	startList={"startFight","gear"}
---	startList={"littleBoss"}
+	--	startList={"littleBoss"}
 }
 
 
@@ -280,6 +280,55 @@ status[3]={
 	closeStore=status.common.closeStore,
 	
 	startList=status.common.startList
+}
+
+
+status[4]={}
+status[5]={}
+status[6]={}
+--合成精髓
+status[7]={
+	synthesis={
+		name="synthesis",
+		point=nil,
+		nextStatus={"confirmSynthesis","synthesisOk"},
+		execTime=10
+	},
+	confirmSynthesis={
+		name="confirmSynthesis",
+		point=nil,
+		nextStatus={"synthesis","synthesisOk"},
+		execTime=10
+	},
+	synthesisOk={
+		name="synthesisOk",
+		point=nil,
+		nextStatus={"synthesis","confirmSynthesis"},
+		execTime=10
+	},
+	startList={"synthesis","confirmSynthesis","synthesisOk"}
+}
+--竞技场
+status[8]={
+	victory={
+		name="victory",
+		point=nil,
+		nextStatus={"tangle","pureDefeat"},
+		execTime=150
+	},
+	tangle={
+		name="tangle",
+		point=nil,
+		nextStatus={"victory","pureDefeat"},
+		execTime=150
+	},
+	pureDefeat={
+		name="pureDefeat",
+		point=nil,
+		nextStatus={"tangle","victory"},
+		execTime=150
+	},
+	startList={"tangle","victory","pureDefeat"}
 }
 
 

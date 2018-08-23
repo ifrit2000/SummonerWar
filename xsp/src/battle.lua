@@ -20,7 +20,7 @@ function battle.start()
 	
 	showBattleInfo()
 	--初始化状态
-	local curStatus=findStatus(status,status.startList,20)
+	local curStatus=findStatus(status,status.startList,180)
 	sysLog("初始状态:"..curStatus.name)
 --local curStatus=findStatus(status,{"openStore"},20)
 	if curStatus==nil then
@@ -40,7 +40,7 @@ function battle.start()
 			showBattleInfo()
 			--执行成功
 			statusList=curStatus.nextStatus
-			lib.sleep(1.5)
+			lib.sleepRandom(0.8,1.6)
 			local tmp=findStatus(status,statusList,curStatus.execTime)
 			if tmp~=nil then
 				curStatus=tmp
@@ -75,7 +75,7 @@ function findStatus(status,statusList,execTime)
 			sysLog("查找失败:"..v)
 		end
 		--刷新画面
-		lib.sleep(1.5)
+		lib.sleepRandom(0.8,1.6)
 		keepScreen(false)
 		keepScreen(true)
 	end
