@@ -282,8 +282,43 @@ status[3]={
 	startList=status.common.startList
 }
 
-
-status[4]={}
+--三星碎片
+status[4]={
+	startFight=status.common.startFight,
+	gear={
+		name="gear",
+		point=nil,
+		nextStatus={"tangle","littleBoss","rbTalk"},
+		execTime=300
+	},
+	tangle={
+		name="tangle",
+		point=nil,
+		nextStatus={"littleBoss","rbTalk"},
+		execTime=300
+	},
+	littleBoss={
+		name="littleBoss",
+		point=nil,
+		nextStatus={"rbTalk"},
+		execTime=300
+	},
+	rbTalk={
+		name="rbTalk",
+		point=nil,
+		nextStatus={"confirmReward"},
+		execTime=10
+	},
+	confirmReward=status.common.confirmReward,
+	again=status.common.again,
+	openStore=status.common.openStore,
+	clickEnerge=status.common.clickEnerge,
+	buyEnerge=status.common.buyEnerge,
+	finishBuyConfirm=status.common.finishBuyConfirm,
+	closeStore=status.common.closeStore,
+	
+	startList=status.common.startList
+}
 status[5]={}
 status[6]={}
 --合成精髓

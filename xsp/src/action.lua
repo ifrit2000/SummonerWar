@@ -5,19 +5,19 @@ require("lib")
 action={}
 
 action.clickPointAction={"tangle","victoryRGB","victory","confirmReward","saleRune","confirmSaleRune","keepRune",
-	"noRevive","prepareBattle","openStore","clickEnerge","buyEnerge","closeStore","nextStage","synthesisOk","confirmSynthesis","pureDefeat"}
+	"noRevive","prepareBattle","openStore","clickEnerge","buyEnerge","closeStore","nextStage","synthesisOk","confirmSynthesis","pureDefeat","rbTalk"}
 action.emptyAction={"gear","bigBoss"}
 
 function action.littleBoss()
-	if config.battleType~=3 and config.isClickLittleBoss==false then
+	if config.battleType~=3 and config.battleType~=4 and config.isClickLittleBoss==false then
 		lib.click(1331*config.height/2048,596*config.width/1536)
+		config.isClickLittleBoss=true
 	end
 	
-	if config.battleType==3 then
+	if (config.battleType==3 or config.battleType==4) and config.isClickLittleBoss==false then
 		lib.click(config.height/2,667*config.width/1536)
+		config.isClickLittleBoss=true
 	end
-	config.isClickLittleBoss=true
-	
 	return true
 end
 
