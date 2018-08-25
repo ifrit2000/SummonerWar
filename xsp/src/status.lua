@@ -232,7 +232,12 @@ status[2]={
 
 --塔
 status[3]={
-	startFight=status.common.startFight,
+	startFight={
+		name="startFight",
+		point=nil,
+		nextStatus={"gear","openStore"},
+		execTime=60
+	},
 	gear={
 		name="gear",
 		point=nil,
@@ -277,7 +282,12 @@ status[3]={
 	clickEnerge=status.common.clickEnerge,
 	buyEnerge=status.common.buyEnerge,
 	finishBuyConfirm=status.common.finishBuyConfirm,
-	closeStore=status.common.closeStore,
+	closeStore={
+		name="closeStore",
+		point=nil,
+		nextStatus={"startFight"},
+		execTime=10
+	},
 	
 	startList=status.common.startList
 }
