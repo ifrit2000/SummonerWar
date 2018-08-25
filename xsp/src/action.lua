@@ -34,7 +34,7 @@ end
 action.startFight=action.addRepeatCount
 action.again=action.addRepeatCount
 action.synthesisOk=action.addRepeatCount
-action.owConfirmStartFight=action.owConfirmStartFight
+action.owConfirmStartFight=action.addRepeatCount
 
 function action.finishBuyConfirm(point)
 	if lib.clickPoint(point) then

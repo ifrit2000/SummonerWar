@@ -343,7 +343,7 @@ status[5]={
 	owVictory={
 		name="owVictory",
 		point=nil,
-		nextStatus={},
+		nextStatus={"confirmReward","keepRune"},
 		execTime=10
 	},
 	confirmReward={
@@ -368,7 +368,7 @@ status[5]={
 		name="owSameTeamAgain",
 		point=nil,
 		nextStatus={"owStartFight"},
-		execTime=10
+		execTime=100
 	},
 	
 	openStore=status.common.openStore,
@@ -391,14 +391,19 @@ status[6]={
 		name="owReadyToFight",
 		point=nil,
 		nextStatus={"owGear"},
-		execTime=10
+		execTime=60
 	},
 	owGear=status[5].owGear,
 	owVictory=status[5].owVictory,
 	confirmReward=status[5].confirmReward,
 	keepRune=status[5].keepRune,
 	owDefeat=status[5].owDefeat,
-	owSameTeamAgain=status[5].owSameTeamAgain,
+	owSameTeamAgain={
+		name="owSameTeamAgain",
+		point=nil,
+		nextStatus={"owReadyToFight"},
+		execTime=100
+	},
 	openStore=status[5].openStore,
 	clickEnerge=status[5].clickEnerge,
 	buyEnerge=status[5].buyEnerge,
