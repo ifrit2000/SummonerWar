@@ -319,7 +319,11 @@ status[4]={
 	
 	startList=status.common.startList
 }
+
+--异界队长
 status[5]={}
+
+--异界队员
 status[6]={}
 --合成精髓
 status[7]={
