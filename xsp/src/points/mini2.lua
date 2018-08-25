@@ -132,7 +132,35 @@ mini2={
 	rbTalk={{413, 683, 593, 867},
 		"0|0|0x107cad,-21|-13|0x58d8e9,-51|39|0x0b7dd3,958|13|0xf67fb2,958|3|0xef7cad,957|41|0xf882b6,-447|-568|0x533529,-429|-567|0x53362a,-429|-581|0xf6ecd7,-451|-581|0xf3ebd6",
 		95, 0, 0, 0
-	}
+	},
+	
+	--异界相关
+	--队长 开始战斗的按钮
+	owStartFight={
+		
+	},
+	
+	--确认开始战斗
+	owConfirmStartFight={
+		
+	},
+	--战斗齿轮
+	owGear={
+		
+	},
+	--胜利标记
+	owVictory={
+		
+	},
+	owDefeat={
+		
+	},
+	owSameTeamAgain={
+		
+	},
+	
+	--队员准备战斗
+	owReadyToFight={}
 }
 
 

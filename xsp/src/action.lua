@@ -5,8 +5,9 @@ require("lib")
 action={}
 
 action.clickPointAction={"tangle","victoryRGB","victory","confirmReward","saleRune","confirmSaleRune","keepRune",
-	"noRevive","prepareBattle","openStore","clickEnerge","buyEnerge","closeStore","nextStage","synthesis","confirmSynthesis","pureDefeat","rbTalk"}
-action.emptyAction={"gear","bigBoss"}
+	"noRevive","prepareBattle","openStore","clickEnerge","buyEnerge","closeStore","nextStage","synthesis","confirmSynthesis","pureDefeat","rbTalk",
+	"owStartFight","owVictory","owDefeat","owSameTeamAgain","owReadyToFight"}
+action.emptyAction={"gear","bigBoss","owGear"}
 
 function action.littleBoss()
 	if config.battleType~=3 and config.battleType~=4 and config.isClickLittleBoss==false then
@@ -33,6 +34,7 @@ end
 action.startFight=action.addRepeatCount
 action.again=action.addRepeatCount
 action.synthesisOk=action.addRepeatCount
+action.owConfirmStartFight=action.owConfirmStartFight
 
 function action.finishBuyConfirm(point)
 	if lib.clickPoint(point) then

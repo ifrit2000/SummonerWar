@@ -321,10 +321,92 @@ status[4]={
 }
 
 --异界队长
-status[5]={}
+status[5]={
+	owStartFight={
+		name="owStartFight",
+		point=nil,
+		nextStatus={"owConfirmStartFight"},
+		execTime=300
+	},
+	owConfirmStartFight={
+		name="owConfirmStartFight",
+		point=nil,
+		nextStatus={"owGear"},
+		execTime=120
+	},
+	owGear={
+		name="owGear",
+		point=nil,
+		nextStatus={"owVictory","owDefeat"},
+		execTime=300
+	},
+	owVictory={
+		name="owVictory",
+		point=nil,
+		nextStatus={},
+		execTime=10
+	},
+	confirmReward={
+		name="confirmReward",
+		point=nil,
+		nextStatus={"owSameTeamAgain"},
+		execTime=10
+	},
+	keepRune={
+		name="keepRune",
+		point=nil,
+		nextStatus={"owSameTeamAgain"},
+		execTime=10
+	},
+	owDefeat={
+		name="owDefeat",
+		point=nil,
+		nextStatus={"owSameTeamAgain"},
+		execTime=10
+	},
+	owSameTeamAgain={
+		name="owSameTeamAgain",
+		point=nil,
+		nextStatus={"owStartFight"},
+		execTime=10
+	},
+	
+	openStore=status.common.openStore,
+	clickEnerge=status.common.clickEnerge,
+	buyEnerge=status.common.buyEnerge,
+	finishBuyConfirm=status.common.finishBuyConfirm,
+	closeStore={
+		name="closeStore",
+		point=nil,
+		nextStatus={"owSameTeamAgain"},
+		execTime=10
+	},
+	
+	startList={"owStartFight","owGear"}
+}
 
 --异界队员
-status[6]={}
+status[6]={
+	owReadyToFight={
+		name="owReadyToFight",
+		point=nil,
+		nextStatus={"owGear"},
+		execTime=10
+	},
+	owGear=status[5].owGear,
+	owVictory=status[5].owVictory,
+	confirmReward=status[5].confirmReward,
+	keepRune=status[5].keepRune,
+	owDefeat=status[5].owDefeat,
+	owSameTeamAgain=status[5].owSameTeamAgain,
+	openStore=status[5].openStore,
+	clickEnerge=status[5].clickEnerge,
+	buyEnerge=status[5].buyEnerge,
+	finishBuyConfirm=status[5].finishBuyConfirm,
+	closeStore=status[5].closeStore,
+	
+	startList={"owReadyToFight","owGear"}
+}
 --合成精髓
 status[7]={
 	synthesis={
