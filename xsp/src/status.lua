@@ -377,7 +377,7 @@ status[5]={
 	owSameTeamAgain={
 		name="owSameTeamAgain",
 		point=nil,
-		nextStatus={"owStartFight"},
+		nextStatus={"owStartFight","openStore"},
 		execTime=100
 	},
 	
