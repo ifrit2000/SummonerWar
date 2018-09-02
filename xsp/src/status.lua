@@ -117,7 +117,7 @@ status.common={
 	},
 	
 	startList={"startFight","gear"}
-	--	startList={"littleBoss"}
+--		startList={"again"}
 }
 
 

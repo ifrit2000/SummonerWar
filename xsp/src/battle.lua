@@ -31,7 +31,8 @@ function battle.start()
 	--or后面的条件保证最后一次战斗脚本能控制到战斗结束
 	while const.repeatCount<config.repeatCount or (const.repeatCount==config.repeatCount and curStatus.name~="victory" and curStatus.name~="noRevive") do
 		--判断购买体力
-		if curStatus.name=="openStore" and const.energeCount<=config.energeCount then
+		if curStatus.name=="openStore" and const.energeCount>=config.energeCount then
+			
 			return
 		end
 		
@@ -45,7 +46,7 @@ function battle.start()
 			if tmp~=nil then
 				curStatus=tmp
 			else
-				dialog("程序卡住了,当前状态:"..curStatus.name)
+--				dialog("程序卡住了,当前状态:"..curStatus.name)
 				return
 			end
 		else
