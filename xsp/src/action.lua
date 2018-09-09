@@ -45,6 +45,7 @@ function action.finishBuyConfirm(point)
 end
 
 function action.defeat(point)
+	const.defeatCount=const.defeatCount+1;
 	if config.battleType==3 then
 		lockDevice();
 		lua_exit();
