@@ -38,7 +38,7 @@ function battle.start()
 		
 		if curStatus.action(curStatus.point) then
 			sysLog("执行成功:"..curStatus.name)
-			fileLogWrite("执行成功:"..curStatus.name)
+			fileLogWrite("swlog",1,"INFO","执行成功:"..curStatus.name)
 			showBattleInfo()
 			--执行成功
 			statusList=curStatus.nextStatus
