@@ -38,6 +38,7 @@ function battle.start()
 		
 		if curStatus.action(curStatus.point) then
 			sysLog("执行成功:"..curStatus.name)
+			fileLogWrite("执行成功:"..curStatus.name)
 			showBattleInfo()
 			--执行成功
 			statusList=curStatus.nextStatus
@@ -66,14 +67,17 @@ function findStatus(status,statusList,execTime)
 		local isColorExist
 		for k,v in pairs(statusList) do
 			sysLog("开始查找:"..v.." 剩余时间: "..(execTime-(os.time()-startTime)))
+			fileLogWrite("swlog",1,"INFO","开始查找:"..v.." 剩余时间: "..(execTime-(os.time()-startTime)))
 			isColorExist=lib.findColor(status[v].point)
 			if isColorExist~=-1 then
 				--如果存在,设置当前status,跳出循环
 				
 				sysLog("查找成功:"..v)
+				fileLogWrite("swlog",1,"INFO","查找成功:"..v)
 				return status[v]
 			end
 			sysLog("查找失败:"..v)
+			fileLogWrite("swlog",1,"INFO","查找失败:"..v)
 		end
 		--刷新画面
 		lib.sleepRandom(0.8,1.6)
