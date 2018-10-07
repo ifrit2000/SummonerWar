@@ -39,7 +39,7 @@
       {
          "id" : "ft",
          "width" : 1500,
-         "height" : 120,
+         "height" : 150,
          "type" : "LinearLayout",
          "views" : [
             //LinearLayout 控件内的所有子控件都需要加入width属性指定宽度
@@ -50,7 +50,7 @@
                "text" : "重复次数:",
                "bg" : "255,255,255",
                "type" : "Label",
-               "width" : 220,
+               "width" : 250,
                "height" : 120
             },
             {
@@ -62,7 +62,7 @@
                "size" : 30,
                "text" : "10",
                "type" : "Edit",
-               "width" : 150,
+               "width" : 200,
                "height" : 120
             }
          ]
@@ -85,7 +85,7 @@
          "size" : 30,
          "text" : "0",
          "type" : "Edit",
-         "width" : 150,
+         "width" : 200,
          "height" : 120
       }
    ]
