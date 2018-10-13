@@ -173,9 +173,9 @@ redMiNote2={
 	},
 	
 	--队员准备战斗
-	owReadyToFight={{1521, 841, 1899, 1074},
-		"0|0|0xf8e9ad,2|3|0xf8e9ad,13|-2|0xf8e9ad,21|-2|0xf8e9ad,22|9|0xf8e9ad,50|-1|0xf8e9ad,63|2|0xf8e9ad,72|4|0xc89e45,115|-6|0xcfa84e",
-		95, 0, 0, 0
+	owReadyToFight={{1569, 895, 1829, 1045}, 
+"0|0|0xc79d46,-7|5|0xfbebaf,75|6|0xfaeaae,84|6|0xfcecb0,87|2|0xfcecb0,94|7|0xfdedb1,112|39|0xcfa049,119|39|0xd1a24b,128|36|0xaea580,144|39|0xdbaa55",
+85, 0, 0, 0
 	}
 	
 }
