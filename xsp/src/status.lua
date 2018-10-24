@@ -75,7 +75,7 @@ status.common={
 		name="defeat",
 		point=nil,
 		nextStatus={"prepareBattle"},
-		execTime=10
+		execTime=100
 	},
 	prepareBattle={
 		name="prepareBattle",
