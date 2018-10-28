@@ -33,7 +33,9 @@ function lib.showMsg(message)
   showHUD(config.hudId,message,fontSize,"0xffff0000","0x00ffffff",3,0,0,500,260);     --变更显示的HUD内容
 end
 
-
+function lib.fileLog(message)
+	fileLogWrite("swLog/swLog",1,"INFO",message)
+end
 
 
 
