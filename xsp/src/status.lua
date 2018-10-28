@@ -33,31 +33,31 @@ status.common={
 		name="victoryRGB",
 		point=nil,
 		nextStatus={"victory"},
-		execTime=10
+		execTime=20
 	},
 	victory={
 		name="victory",
 		point=nil,
 		nextStatus={"saleRune","confirmReward"},
-		execTime=10
+		execTime=20
 	},
 	confirmReward={
 		name="confirmReward",
 		point=nil,
 		nextStatus={"again"},
-		execTime=10
+		execTime=20
 	},
 	saleRune={
 		name="saleRune",
 		point=nil,
 		nextStatus={"again","confirmSaleRune"},
-		execTime=10
+		execTime=20
 	},
 	confirmSaleRune={
 		name="confirmSaleRune",
 		point=nil,
 		nextStatus={"again"},
-		execTime=10
+		execTime=20
 	},
 	again={
 		name="again",
@@ -69,7 +69,7 @@ status.common={
 		name="noRevive",
 		point=nil,
 		nextStatus={"defeat"},
-		execTime=10
+		execTime=20
 	},
 	defeat={
 		name="defeat",
@@ -81,39 +81,39 @@ status.common={
 		name="prepareBattle",
 		point=nil,
 		nextStatus={"startFight"},
-		execTime=10
+		execTime=20
 	},
 	openStore={
 		name="openStore",
 		point=nil,
 		nextStatus={"clickEnerge"},
-		execTime=10
+		execTime=20
 	},
 	clickEnerge={
 		name="clickEnerge",
 		point=nil,
 		nextStatus={"buyEnerge"},
-		execTime=10
+		execTime=20
 	},
 	buyEnerge={
 		name="buyEnerge",
 		point=nil,
 		nextStatus={"finishBuyConfirm"},
-		execTime=10
+		execTime=20
 	},
 	
 	finishBuyConfirm={
 		name="finishBuyConfirm",
 		point=nil,
 		nextStatus={"closeStore"},
-		execTime=10
+		execTime=20
 	},
 	
 	closeStore={
 		name="closeStore",
 		point=nil,
 		nextStatus={"again"},
-		execTime=10
+		execTime=20
 	},
 	
 	startList={"startFight","gear"}
@@ -157,7 +157,7 @@ status[1]={
 		name="victory",
 		point=nil,
 		nextStatus={"confirmReward"},
-		execTime=10
+		execTime=20
 	},
 	confirmReward=status.common.confirmReward,
 	
@@ -207,14 +207,14 @@ status[2]={
 		name="victory",
 		point=nil,
 		nextStatus={"keepRune","confirmReward"},
-		execTime=10
+		execTime=20
 	},
 	confirmReward=status.common.confirmReward,
 	keepRune={
 		name="keepRune",
 		point=nil,
 		nextStatus={"again"},
-		execTime=10
+		execTime=20
 	},
 	again=status.common.again,
 	noRevive=status.common.noRevive,
@@ -261,19 +261,19 @@ status[3]={
 		name="victory",
 		point=nil,
 		nextStatus={"confirmReward"},
-		execTime=10
+		execTime=20
 	},
 	confirmReward={
 		name="confirmReward",
 		point=nil,
 		nextStatus={"nextStage"},
-		execTime=10
+		execTime=20
 	},
 	nextStage={
 		name="nextStage",
 		point=nil,
 		nextStatus={"startFight"},
-		execTime=10
+		execTime=20
 	},
 	defeat=status.common.defeat,
 	--prepareBattle=status.common.prepareBattle,
@@ -286,7 +286,7 @@ status[3]={
 		name="closeStore",
 		point=nil,
 		nextStatus={"startFight"},
-		execTime=10
+		execTime=20
 	},
 	
 	startList=status.common.startList
@@ -317,7 +317,7 @@ status[4]={
 		name="rbTalk",
 		point=nil,
 		nextStatus={"confirmReward"},
-		execTime=10
+		execTime=20
 	},
 	confirmReward=status.common.confirmReward,
 	again=status.common.again,
@@ -354,25 +354,25 @@ status[5]={
 		name="owVictory",
 		point=nil,
 		nextStatus={"confirmReward","keepRune"},
-		execTime=10
+		execTime=20
 	},
 	confirmReward={
 		name="confirmReward",
 		point=nil,
 		nextStatus={"owSameTeamAgain"},
-		execTime=10
+		execTime=20
 	},
 	keepRune={
 		name="keepRune",
 		point=nil,
 		nextStatus={"owSameTeamAgain"},
-		execTime=10
+		execTime=20
 	},
 	owDefeat={
 		name="owDefeat",
 		point=nil,
 		nextStatus={"owSameTeamAgain"},
-		execTime=10
+		execTime=20
 	},
 	owSameTeamAgain={
 		name="owSameTeamAgain",
@@ -389,7 +389,7 @@ status[5]={
 		name="closeStore",
 		point=nil,
 		nextStatus={"owSameTeamAgain"},
-		execTime=10
+		execTime=20
 	},
 	
 	startList={"owStartFight","owGear"}
@@ -428,19 +428,19 @@ status[7]={
 		name="synthesis",
 		point=nil,
 		nextStatus={"confirmSynthesis","synthesisOk"},
-		execTime=10
+		execTime=20
 	},
 	confirmSynthesis={
 		name="confirmSynthesis",
 		point=nil,
 		nextStatus={"synthesis","synthesisOk"},
-		execTime=10
+		execTime=20
 	},
 	synthesisOk={
 		name="synthesisOk",
 		point=nil,
 		nextStatus={"synthesis","confirmSynthesis"},
-		execTime=10
+		execTime=20
 	},
 	startList={"synthesis","confirmSynthesis","synthesisOk"}
 }

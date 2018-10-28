@@ -78,6 +78,10 @@ function findStatus(status,statusList,execTime)
 			end
 			sysLog("查找失败:"..v)
 			fileLogWrite("swlog",1,"INFO","查找失败:"..v)
+			if os.time()-startTime>=execTime then
+				sysLog("查找失败:"..v)
+				fileLogWrite("swlog",1,"INFO","查找失败:**********"..v)
+			end
 		end
 		--刷新画面
 		lib.sleepRandom(0.8,1.6)
