@@ -213,7 +213,8 @@ status[2]={
 	keepRune={
 		name="keepRune",
 		point=nil,
-		nextStatus={"again"},
+		
+		nextStatus={"again","confirmReward"}, --圣诞活动的时候才有confirmReward
 		execTime=20
 	},
 	again=status.common.again,

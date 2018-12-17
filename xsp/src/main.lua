@@ -35,6 +35,8 @@ function initScript()
 	sysLog("设备信息: ")
 	sysLog("    设备名称:"..config.device)
 	sysLog("    分辨率:"..height.."*"..width)
+	lib.fileLog("设备名称:"..config.device)
+	lib.fileLog("分辨率:"..height.."*"..width)
 	
 	config.hudId = createHUD()     --创建一个HUD
 	return true
@@ -61,8 +63,9 @@ function run()
 	if parseUI()==false then
 		return
 	end
-	
+	lib.fileLog("开始")
 	battle.start()
+	lib.fileLog("结束")
 	lockDevice();
 	lua_exit();
 end;
