@@ -354,7 +354,7 @@ status[5]={
 	owVictory={
 		name="owVictory",
 		point=nil,
-		nextStatus={"confirmReward","keepRune"},
+		nextStatus={"confirmReward","keepRune","owSameTeamAgain"},
 		execTime=20
 	},
 	confirmReward={
@@ -389,7 +389,7 @@ status[5]={
 	closeStore={
 		name="closeStore",
 		point=nil,
-		nextStatus={"owSameTeamAgain"},
+		nextStatus={"owVictory","owSameTeamAgain"},
 		execTime=20
 	},
 	
