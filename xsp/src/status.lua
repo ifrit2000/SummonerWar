@@ -409,13 +409,13 @@ status[6]={
 	confirmReward=status[5].confirmReward,
 	keepRune=status[5].keepRune,
 	owDefeat=status[5].owDefeat,
-	owSameTeamAgain=status[5].owSameTeamAgain,
---	owSameTeamAgain={
---		name="owSameTeamAgain",
---		point=nil,
---		nextStatus={"owReadyToFight","openStore"},
---		execTime=100
---	},
+
+	owSameTeamAgain={
+		name="owSameTeamAgain",
+		point=nil,
+		nextStatus={"owReadyToFight","openStore"},
+		execTime=100
+	},
 	openStore=status[5].openStore,
 	clickEnerge=status[5].clickEnerge,
 	buyEnerge=status[5].buyEnerge,
