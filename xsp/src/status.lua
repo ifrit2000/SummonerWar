@@ -243,19 +243,19 @@ status[3]={
 		name="gear",
 		point=nil,
 		nextStatus={"tangle","littleBoss","victoryRGB","defeat"},
-		execTime=300
+		execTime=600
 	},
 	tangle={
 		name="tangle",
 		point=nil,
 		nextStatus={"littleBoss","victoryRGB","defeat"},
-		execTime=300
+		execTime=600
 	},
 	littleBoss={
 		name="littleBoss",
 		point=nil,
 		nextStatus={"victoryRGB","defeat"},
-		execTime=300
+		execTime=600
 	},
 	victoryRGB=status.common.victoryRGB,
 	victory={
@@ -409,12 +409,13 @@ status[6]={
 	confirmReward=status[5].confirmReward,
 	keepRune=status[5].keepRune,
 	owDefeat=status[5].owDefeat,
-	owSameTeamAgain={
-		name="owSameTeamAgain",
-		point=nil,
-		nextStatus={"owReadyToFight"},
-		execTime=100
-	},
+	owSameTeamAgain=status[5].owSameTeamAgain,
+--	owSameTeamAgain={
+--		name="owSameTeamAgain",
+--		point=nil,
+--		nextStatus={"owReadyToFight","openStore"},
+--		execTime=100
+--	},
 	openStore=status[5].openStore,
 	clickEnerge=status[5].clickEnerge,
 	buyEnerge=status[5].buyEnerge,
