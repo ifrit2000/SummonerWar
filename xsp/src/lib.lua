@@ -28,9 +28,9 @@ function lib.clickPoint(point)
 	return false
 end
 
-function lib.showMsg(message)
+function lib.showMsg(message,x,y)
   local fontSize=40;
-  showHUD(config.hudId,message,fontSize,"0xffff0000","0x00ffffff",3,0,0,500,260);     --变更显示的HUD内容
+  showHUD(config.hudId,message,fontSize,"0xffff0000","0x00ffffff",0,x/2,y-260,500,260);     --变更显示的HUD内容
 end
 
 function lib.fileLog(message)

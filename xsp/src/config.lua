@@ -8,6 +8,7 @@ config[5]="突突(队长)"
 config[6]="突突(队员)"
 config[7]="合成精髓"
 config[8]="竞技场"
+config[9]="属性异界"
 
 
 config.point=nil

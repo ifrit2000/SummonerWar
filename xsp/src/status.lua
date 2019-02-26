@@ -117,7 +117,7 @@ status.common={
 	},
 	
 	startList={"startFight","gear"}
---		startList={"again"}
+	--		startList={"again"}
 }
 
 
@@ -213,7 +213,7 @@ status[2]={
 	keepRune={
 		name="keepRune",
 		point=nil,
-		nextStatus={"again"}, 
+		nextStatus={"again"},
 		execTime=20
 	},
 	again=status.common.again,
@@ -408,7 +408,7 @@ status[6]={
 	confirmReward=status[5].confirmReward,
 	keepRune=status[5].keepRune,
 	owDefeat=status[5].owDefeat,
-
+	
 	owSameTeamAgain={
 		name="owSameTeamAgain",
 		point=nil,
@@ -468,6 +468,49 @@ status[8]={
 	startList={"tangle","victory","pureDefeat"}
 }
 
+--属性异界
+status[9]={
+	startFight=status.common.startFight,
+	gear={
+		name="gear",
+		point=nil,
+		nextStatus={"tangle","eleOwSettlement"},
+		execTime=300
+	},
+	tangle={
+		name="tangle",
+		point=nil,
+		nextStatus={"eleOwSettlement"},
+		execTime=300
+	},
+	eleOwSettlement={
+		name="eleOwSettlement",
+		point=nil,
+		nextStatus={"eleOwSettlementBox"},
+		execTime=30
+	},
+	eleOwSettlementBox={
+		name="eleOwSettlementBox",
+		point=nil,
+		nextStatus={"eleOwRewardConfirm"},
+		execTime=30
+	},
+	eleOwRewardConfirm={
+		name="eleOwRewardConfirm",
+		point=nil,
+		nextStatus={"again"},
+		execTime=30
+	},
+	again=status.common.again,
+	openStore=status.common.openStore,
+	clickEnerge=status.common.clickEnerge,
+	buyEnerge=status.common.buyEnerge,
+	finishBuyConfirm=status.common.finishBuyConfirm,
+	closeStore=status.common.closeStore,
+	
+	startList=status.common.startList
+--	startList={"eleOwSettlementBox"}
+}
 
 function status.init()
 	action.init()
