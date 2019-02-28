@@ -93,7 +93,7 @@ function findStatus(status,statusList,execTime)
 end
 
 function showBattleInfo()
-	local message="战斗类型:"..config[config.battleType].."\n".."重复次数:"..const.repeatCount.."/"..config.repeatCount.."/"..const.defeatCount.."\n".."购买体力:"..const.energeCount.."/"..config.energeCount
+	local message=config[config.battleType].." "..const.repeatCount.."/"..config.repeatCount.."/"..const.defeatCount.." "..const.energeCount.."/"..config.energeCount
 	lib.showMsg(message,config.height,config.width)
 end
 
