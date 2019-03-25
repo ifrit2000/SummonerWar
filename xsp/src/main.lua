@@ -25,6 +25,9 @@ function initScript()
 	elseif width==1080 and height==1920 then
 		config.device='redMiNote2'
 		config.points=require("points/redMiNote2")
+	elseif width==1080 and height==2340 then
+		config.device='mix3'
+		config.points=require("points/mix3")
 	else
 		dialog("未知设备")
 		return false
