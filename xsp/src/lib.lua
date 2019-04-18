@@ -34,7 +34,7 @@ function lib.showMsg(message,x,y)
 end
 
 function lib.fileLog(message)
-	fileLogWrite("swLog/swLog",1,"INFO",message)
+	fileLogWrite("swLog.log",1,"INFO",message)
 end
 
 

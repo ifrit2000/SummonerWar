@@ -182,13 +182,13 @@ status[2]={
 		name="gear",
 		point=nil,
 		nextStatus={"tangle","littleBoss","victoryRGB","noRevive"},
-		execTime=100
+		execTime=300
 	},
 	tangle={
 		name="tangle",
 		point=nil,
 		nextStatus={"littleBoss","victoryRGB","noRevive"},
-		execTime=100
+		execTime=300
 	},
 	littleBoss={
 		name="littleBoss",
@@ -200,7 +200,7 @@ status[2]={
 		name="bigBoss",
 		point=nil,
 		nextStatus={"victoryRGB","noRevive"},
-		execTime=300
+		execTime=500
 	},
 	victoryRGB=status.common.victoryRGB,
 	victory={
