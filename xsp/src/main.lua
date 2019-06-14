@@ -41,6 +41,8 @@ function initScript()
 	lib.fileLog("设备名称:"..config.device)
 	lib.fileLog("分辨率:"..height.."*"..width)
 	
+--	sysLog('CPU构架: ' .. getSystemProperty('ro.arch'))
+--	sysLog('手机产品号:' .. getSystemProperty('ro.build.product'))
 	config.hudId = createHUD()     --创建一个HUD
 	return true
 end

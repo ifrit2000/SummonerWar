@@ -6,7 +6,8 @@ action={}
 
 action.clickPointAction={"tangle","victoryRGB","victory","confirmReward","saleRune","confirmSaleRune","keepRune",
 	"noRevive","prepareBattle","openStore","clickEnerge","buyEnerge","closeStore","nextStage","synthesis","confirmSynthesis","pureDefeat","rbTalk",
-	"owStartFight","owVictory","owDefeat","owSameTeamAgain","owReadyToFight","eleOwSettlement","eleOwRewardConfirm","eleOwSettlementBox"}
+	"owStartFight","owVictory","owDefeat","owSameTeamAgain","owReadyToFight","eleOwSettlement","eleOwRewardConfirm","eleOwSettlementBox",
+	"dimVictoryRGB","dimVictory","dimAgain","dimPrepareBattle"}
 action.emptyAction={"gear","bigBoss","owGear"}
 
 function action.littleBoss()
@@ -35,6 +36,7 @@ action.startFight=action.addRepeatCount
 action.again=action.addRepeatCount
 action.synthesisOk=action.addRepeatCount
 action.owConfirmStartFight=action.addRepeatCount
+action.dimCaveStart=action.addRepeatCount
 
 function action.finishBuyConfirm(point)
 	if lib.clickPoint(point) then
@@ -54,6 +56,7 @@ function action.defeat(point)
 	end
 end
 
+dimDefeat=action.defeat
 
 function action.init()
 	for k,v in pairs(action.clickPointAction) do

@@ -509,7 +509,78 @@ status[9]={
 	closeStore=status.common.closeStore,
 	
 	startList=status.common.startList
---	startList={"eleOwSettlementBox"}
+	--	startList={"eleOwSettlementBox"}
+}
+
+--次元洞口
+status[10]={
+	dimCaveStart={
+		name="dimCaveStart",
+		point=nil,
+		nextStatus={"dimCaveStart","gear"},
+		execTime=30
+	},
+	gear={
+		name="gear",
+		point=nil,
+		nextStatus={"tangle","dimVictoryRGB","noRevive"},
+		execTime=300
+	},
+	tangle={
+		name="tangle",
+		point=nil,
+		nextStatus={"dimVictoryRGB","noRevive"},
+		execTime=300
+	},
+	dimVictoryRGB={
+		name="dimVictoryRGB",
+		point=nil,
+		nextStatus={"dimVictory"},
+		execTime=20
+	},
+	dimVictory={
+		name="dimVictory",
+		point=nil,
+		nextStatus={"keepRune","confirmReward"},
+		execTime=20
+	},
+	confirmReward={
+		name="confirmReward",
+		point=nil,
+		nextStatus={"dimAgain"},
+		execTime=20
+	},
+	keepRune={
+		name="keepRune",
+		point=nil,
+		nextStatus={"dimAgain"},
+		execTime=20
+	},
+	dimAgain={
+		name="dimAgain",
+		point=nil,
+		nextStatus={"gear"},
+		execTime=60
+	},
+	noRevive={
+		name="noRevive",
+		point=nil,
+		nextStatus={"dimDefeat"},
+		execTime=20
+	},
+	dimDefeat={
+		name="dimDefeat",
+		point=nil,
+		nextStatus={"prepareBattle"},
+		execTime=100
+	},
+	prepareBattle={
+		name="prepareBattle",
+		point=nil,
+		nextStatus={"startFight"},
+		execTime=20
+	},
+	startList={"dimCaveStart","gear"}
 }
 
 function status.init()

@@ -156,9 +156,9 @@ mini2={
 	},
 	--胜利标记
 	owVictory={
-		{796, 104, 1301, 530}, 
-"0|0|0xeeb41d,28|3|0xeeac18,73|11|0xeda716,76|-8|0xecb51c,152|9|0xedab18,217|13|0xe9a412,200|14|0xd89413,222|-35|0xeadfb9,4|67|0xfffee2,-17|69|0xfffee2",
-90, 0, 0, 0
+		{796, 104, 1301, 530},
+		"0|0|0xeeb41d,28|3|0xeeac18,73|11|0xeda716,76|-8|0xecb51c,152|9|0xedab18,217|13|0xe9a412,200|14|0xd89413,222|-35|0xeadfb9,4|67|0xfffee2,-17|69|0xfffee2",
+		90, 0, 0, 0
 	},
 	owDefeat={
 		{866, 276, 1198, 494},
@@ -176,7 +176,20 @@ mini2={
 		{1638, 1298, 1774, 1494},
 		"0|0|0xf8e9ad,2|3|0xf8e9ad,13|11|0xeadca3,24|24|0xc0b586,0|-18|0xd0a64c,23|-17|0xd0a74b,50|14|0xe2d49d,53|26|0xb9ae81,44|30|0xc3943a",
 		90, 0, 0, 0
-	}
+	},
+	
+	
+	dimCaveStart={},
+	
+	dimVictoryRGB={},
+	
+	dimVictory={},
+	
+	dimAgain={},
+	
+	dimDefeat={},
+	
+	dimPrepareBattle={}
 }
 
 
