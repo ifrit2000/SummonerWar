@@ -57,7 +57,7 @@ function action.defeat(point)
 	end
 end
 
-dimDefeat=action.defeat
+action.dimDefeat=action.defeat
 
 function action.init()
 	for k,v in pairs(action.clickPointAction) do

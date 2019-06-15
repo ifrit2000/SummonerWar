@@ -571,13 +571,13 @@ status[10]={
 	dimDefeat={
 		name="dimDefeat",
 		point=nil,
-		nextStatus={"prepareBattle"},
+		nextStatus={"dimPrepareBattle"},
 		execTime=100
 	},
-	prepareBattle={
-		name="prepareBattle",
+	dimPrepareBattle={
+		name="dimPrepareBattle",
 		point=nil,
-		nextStatus={"startFight"},
+		nextStatus={"dimCaveStart"},
 		execTime=20
 	},
 	startList={"dimCaveStart","gear"}

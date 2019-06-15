@@ -177,7 +177,21 @@ mini2={
 		"0|0|0xf8e9ad,2|3|0xf8e9ad,13|11|0xeadca3,24|24|0xc0b586,0|-18|0xd0a64c,23|-17|0xd0a74b,50|14|0xe2d49d,53|26|0xb9ae81,44|30|0xc3943a",
 		90, 0, 0, 0
 	},
+	----
 	
+	
+	--属性异界成绩结算
+	eleOwSettlement={
+	},
+	
+	--属性异界成绩结算宝箱
+	eleOwSettlementBox={
+	},
+	
+	--属性异界奖励确认
+	eleOwRewardConfirm={},
+	
+	------------------次元洞口---------------------
 	
 	dimCaveStart={},
 	
