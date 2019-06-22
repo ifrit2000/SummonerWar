@@ -182,28 +182,48 @@ mini2={
 	
 	--属性异界成绩结算
 	eleOwSettlement={
+		{689, 241, 1329, 529},
+		"0|0|0xffff7a,36|1|0xffff32,97|-6|0xfcfb5a,15|18|0xfff667,-8|15|0xfff445,287|-9|0xfcfc6f,-656|394|0xfffac7,-625|398|0xf6f0c2,-674|402|0xfff1bf",
+		90, 0, 0, 0
 	},
 	
 	--属性异界成绩结算宝箱
 	eleOwSettlementBox={
+		{697, 258, 1248, 460},
+		"0|0|0xbdbd47,17|0|0xb6b53f,41|0|0xbfbe26,126|-5|0xb4b24a,144|-6|0xbebe26,141|5|0xbfbd36,-666|395|0xb6b291,-669|401|0xb6a986,-651|408|0xb5a481",
+		90, 0, 0, 0
 	},
 	
 	--属性异界奖励确认
-	eleOwRewardConfirm={},
+	eleOwRewardConfirm={{824, 1096, 1274, 1295},
+		"0|0|0xf8e9ad,8|0|0xf8e9ad,5|6|0xf8e9ad,2|16|0xf8e9ad,30|9|0xf8e9ad,52|11|0xf8e9ad,57|14|0xf8e9ad,97|4|0xd2ad52,106|33|0xc89b41,8|-19|0xdab357",
+		90, 0, 0, 0},
 	
 	------------------次元洞口---------------------
 	
-	dimCaveStart={},
+	dimCaveStart={{1537, 998, 1937, 1219},
+		"0|0|0xf8e9ad,9|0|0xf8e9ad,5|20|0xdcce99,53|8|0xf6e7ab,82|23|0xd3c693,137|30|0xbeb284,172|27|0xc7bb8b,193|19|0xded19b,172|41|0xc3933b",
+		90, 0, 0, 0},
 	
-	dimVictoryRGB={},
+	dimVictoryRGB={{837, 254, 1242, 463},
+		"0|0|0xffff37,-3|35|0xfef57a,24|-4|0xffff3b,25|40|0xfffcdf,73|0|0xffff4e,68|43|0xfffce6,148|9|0xffff32,-193|465|0x48aef3,-220|490|0x75cdfa,321|468|0xe2083b",
+		90, 0, 0, 0},
 	
-	dimVictory={},
+	dimVictory={{837, 254, 1242, 463},
+		"0|0|0xffff37,-3|35|0xfef57a,24|-4|0xffff3b,25|40|0xfffcdf,73|0|0xffff4e,68|43|0xfffce6,148|9|0xffff32",
+		90, 0, 0, 0},
 	
-	dimAgain={},
+	dimAgain={{407, 737, 753, 924},
+		"0|0|0xf8e9ad,0|12|0xf8e9ad,0|29|0xf8e9ad,47|3|0xf8e9ad,68|3|0xf8e9ad,58|22|0xf8e9ad,58|36|0xf8e9ad,109|17|0xf8e9ad,129|17|0xf8e9ad",
+		90, 0, 0, 0},
 	
-	dimDefeat={},
+	dimDefeat={{812, 253, 1286, 523},
+		"0|0|0xffff2f,-7|17|0xf8fb36,30|13|0xfcfd34,30|43|0xcddc32,98|1|0xffff33,97|47|0xc8db31,111|64|0xa5c230,160|12|0xfeff34,185|14|0xfbfc33",
+		90, 0, 0, 0},
 	
-	dimPrepareBattle={}
+	dimPrepareBattle={{926, 1047, 1525, 1347},
+		"0|0|0x8e340e,5|28|0xffffa7,27|13|0x8e340e,28|36|0x96320c,51|-2|0x8e340e,54|29|0xffffe3,32|52|0x8e340e,10|109|0xffffff,10|132|0xffffff,10|144|0xffffff",
+		90, 0, 0, 0}
 }
 
 
