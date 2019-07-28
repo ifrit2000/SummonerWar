@@ -30,7 +30,8 @@ end
 
 function lib.showMsg(message,x,y)
   local fontSize=40;
-  showHUD(config.hudId,message,fontSize,"0xffff0000","0x00ffffff",0,x/2,y,500,60);     --变更显示的HUD内容
+  showHUD(config.hudId,message,fontSize,"0xffff0000","0x00ffffff",0,x/2,y-50,500,60);    
+--  showHUD(config.hudId,message,fontSize,"0xffff0000","0x00ffffff",0,x/2,y,500,60);    
 end
 
 function lib.fileLog(message)
